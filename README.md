@@ -1,1 +1,1 @@
-Projekt część 2 BDBT
+University project (BDBT). Web app.
