@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymekeaf.org">
+<head>
+    <meta charset="UTF-8">
+        <title>Adresy</title>
+</head>
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Adresy</h1>
+    <a href="/new">Dodaj nowy adres</a>
+<!-- Table -->
+<table border = "1" cellpadding = "10">
+    <!-- Table header -->
+    <thead>
+    <tr> <!-- Table row -->
+        <th>Nr_adresu</th> <!–- Table column -->
+        <th>Kraj</th>
+        <th>Miasto</th>
+        <th>Ulica</th>
+        <th>Nr_lokalu</th>
+        <th>Kod_pocztowy</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <!-- Table body -->
+    <tbody>
+    <tr th:each = "adres : ${listAdres}">
+        <td th:text = "${adres.nr_adresu}">Nr_adresu</td>
+        <td th:text = "${adres.kraj}">Kraj</td>
+        <td th:text = "${adres.miasto}">Miasto</td>
+        <td th:text = "${adres.ulica}">Ulica</td>
+        <td th:text = "${adres.nr_lokalu}">Nr_lokalu</td>
+        <td th:text = "${adres.kod_pocztowy}">Kod_pocztowy</td>
+    </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>

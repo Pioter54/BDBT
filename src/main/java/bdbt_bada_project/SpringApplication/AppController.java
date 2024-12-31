@@ -3,7 +3,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import javax.servlet.http.HttpServletRequest;
@@ -19,19 +21,30 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/main_admin").setViewName("admin/main_admin");
         registry.addViewController("/main_user").setViewName("user/main_user");
+        registry.addViewController("/adresy_admin").setViewName("admin/adresy_admin");
     }
     @Controller
     public class DashboardController
     {
         @Autowired
         private AdresDAO dao;
-        @RequestMapping("/")
+        @RequestMapping("/adresy_admin")
         public String viewHomepage(Model model){
             List<Adres> listAdres = dao.list();
             model.addAttribute("listAdres", listAdres);
-            return "index";
+            return "admin/adresy_admin";
         }
-
+        @RequestMapping("/new")
+        public String showNewForm(Model model){
+            Adres adres = new Adres();
+            model.addAttribute("adres", adres);
+            return "new_form";
+        }
+        @RequestMapping(value = "/save", method = RequestMethod.POST)
+        public String save(@ModelAttribute("adres") Adres adres){
+            dao.save(adres);
+            return "redirect:/adresy_admin";
+        }
         @RequestMapping("/main")
         public String defaultAfterLogin
                 (HttpServletRequest request) {

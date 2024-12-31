@@ -30,7 +30,8 @@ class AdresDAOTest extends Object {
 
     @Test
     void save() {
-        fail("Not yet implemented");
+        Adres adres = new Adres(9,"Polska", "Warszawa", "Nowowiejska", 1, 1, 1);
+        dao.save(adres);
     }
 
     @Test

@@ -5,14 +5,19 @@ public class Adres {
     private String Kraj;
     private String Miasto;
     private String Ulica;
-    private String Nr_lokalu;
+    private int Nr_budynku;
+    private int Nr_lokalu; // Zmieniony na int
     private int Kod_pocztowy;
 
-    public Adres(int nr_adresu, String kraj, String miasto, String ulica, String nr_lokalu, int kod_pocztowy) {
+    public Adres() {
+    }
+
+    public Adres(int nr_adresu, String kraj, String miasto, String ulica, int nr_budynku, int nr_lokalu, int kod_pocztowy) {
         Nr_adresu = nr_adresu;
         Kraj = kraj;
         Miasto = miasto;
         Ulica = ulica;
+        Nr_budynku = nr_budynku;
         Nr_lokalu = nr_lokalu;
         Kod_pocztowy = kod_pocztowy;
     }
@@ -49,11 +54,19 @@ public class Adres {
         Ulica = ulica;
     }
 
-    public String getNr_lokalu() {
+    public int getNr_budynku() {
+        return Nr_budynku;
+    }
+
+    public void setNr_budynku(int nr_budynku) {
+        Nr_budynku = nr_budynku;
+    }
+
+    public int getNr_lokalu() {
         return Nr_lokalu;
     }
 
-    public void setNr_lokalu(String nr_lokalu) {
+    public void setNr_lokalu(int nr_lokalu) {
         Nr_lokalu = nr_lokalu;
     }
 
@@ -72,7 +85,8 @@ public class Adres {
                 ", Kraj='" + Kraj + '\'' +
                 ", Miasto='" + Miasto + '\'' +
                 ", Ulica='" + Ulica + '\'' +
-                ", Nr_lokalu='" + Nr_lokalu + '\'' +
+                ", Nr_budynku='" + Nr_budynku +
+                ", Nr_lokalu=" + Nr_lokalu +
                 ", Kod_pocztowy=" + Kod_pocztowy +
                 '}';
     }
