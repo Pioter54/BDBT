@@ -24,6 +24,8 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/main_admin").setViewName("admin/main_admin");
         registry.addViewController("/main_user").setViewName("user/main_user");
         registry.addViewController("/adresy_admin").setViewName("admin/adresy_admin");
+        registry.addViewController("/edit_form_adresy").setViewName("admin/edit_form_adresy");
+        registry.addViewController("/new_form_adresy").setViewName("admin/new_form_adresy");
     }
     @Controller
     public class DashboardController
@@ -40,7 +42,7 @@ public class AppController implements WebMvcConfigurer {
         public String showNewForm(Model model){
             Adres adres = new Adres();
             model.addAttribute("adres", adres);
-            return "new_form";
+            return "admin/new_form_adresy";
         }
         @RequestMapping(value = "/save", method = RequestMethod.POST)
         public String save(@ModelAttribute("adres") Adres adres){
@@ -49,7 +51,7 @@ public class AppController implements WebMvcConfigurer {
         }
         @RequestMapping("/edit/{nr_adresu}")
         public ModelAndView showEditForm(@PathVariable(name = "nr_adresu") int nr_adresu){
-            ModelAndView mav = new ModelAndView("edit_form");
+            ModelAndView mav = new ModelAndView("admin/edit_form_adresy");
             Adres adres = dao.get(nr_adresu);
             mav.addObject("adres", adres);
             return mav;
