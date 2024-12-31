@@ -1,6 +1,7 @@
 package bdbt_bada_project.SpringApplication;
 
 import java.util.List;
+import java.util.SplittableRandom;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -51,6 +52,8 @@ public class AdresDAO {
     }
     /* Delete – wybrany rekord z danym id */
     public void delete(int Nr_adresu) {
+        String sql = "DELETE FROM ADRESY WHERE Nr_adresu = ?";
+        jdbcTemplate.update(sql, Nr_adresu);
     }
 
 }

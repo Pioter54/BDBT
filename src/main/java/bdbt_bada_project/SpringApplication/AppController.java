@@ -59,6 +59,11 @@ public class AppController implements WebMvcConfigurer {
             dao.update(adres);
             return "redirect:/adresy_admin";
         }
+        @RequestMapping(value = "/delete/{nr_adresu}")
+        public String delete(@PathVariable(name = "nr_adresu") int nr_adresu){
+            dao.delete(nr_adresu);
+            return "redirect:/adresy_admin";
+        }
         @RequestMapping("/main")
         public String defaultAfterLogin
                 (HttpServletRequest request) {

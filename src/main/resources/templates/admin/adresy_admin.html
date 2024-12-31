@@ -38,6 +38,8 @@
         <td th:text = "${adres.kod_pocztowy}">Kod_pocztowy</td>
         <td>
             <a th:href="@{'/edit/' + ${adres.nr_adresu}}">Edit</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a th:href="@{'/delete/' + ${adres.nr_adresu}}">Delete</a>
         </td>
     </tr>
     </tbody>

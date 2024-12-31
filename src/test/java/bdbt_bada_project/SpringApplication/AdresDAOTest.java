@@ -36,7 +36,7 @@ class AdresDAOTest extends Object {
 
     @Test
     void get() {
-        int nr_adresu = 1;
+        int nr_adresu = 3;
         Adres adres = dao.get(nr_adresu);
         assertNotNull(adres);
     }
@@ -56,6 +56,7 @@ class AdresDAOTest extends Object {
 
     @Test
     void delete() {
-        fail("Not yet implemented");
+        int nr_adresu = 1;
+        dao.delete(nr_adresu);
     }
 }
