@@ -23,15 +23,15 @@ class AdresDAOTest extends Object {
     }
 
     @Test
-    void list() {
-        List<Adres> listAdres = dao.list();
-        assertTrue(listAdres.isEmpty());
-    }
-
-    @Test
     void save() {
         Adres adres = new Adres(9,"Polska", "Warszawa", "Nowowiejska", 1, 1, 1);
         dao.save(adres);
+    }
+
+    @Test
+    void list() {
+        List<Adres> listAdres = dao.list();
+        assertFalse(listAdres.isEmpty());
     }
 
     @Test
