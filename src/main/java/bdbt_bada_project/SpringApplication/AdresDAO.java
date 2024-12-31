@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
@@ -36,10 +37,17 @@ public class AdresDAO {
 
     /* Read – odczytywanie danych z bazy */
     public Adres get(int Nr_adresu) {
-        return null;
+        Object[] args = {Nr_adresu};
+        String sql = "SELECT * FROM ADRESY WHERE Nr_adresu = " + args[0];
+        Adres adres = jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Adres.class));
+        return adres;
     }
     /* Update – aktualizacja danych */
-    public void update(Adres Kraj) {
+    public void update(Adres adres) {
+        String sql = "UPDATE ADRESY SET kraj=:kraj, miasto=:miasto, ulica=:ulica, nr_budynku=:nr_budynku, nr_lokalu=:nr_lokalu, kod_pocztowy=:kod_pocztowy WHERE nr_adresu=:nr_adresu";
+        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(adres);
+        NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
+        template.update(sql, param);
     }
     /* Delete – wybrany rekord z danym id */
     public void delete(int Nr_adresu) {

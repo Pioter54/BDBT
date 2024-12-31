@@ -10,6 +10,7 @@
     <!-- Page header -->
     <h1>Adresy</h1>
     <a href="/new">Dodaj nowy adres</a>
+    <br/><br/>
 <!-- Table -->
 <table border = "1" cellpadding = "10">
     <!-- Table header -->
@@ -19,6 +20,7 @@
         <th>Kraj</th>
         <th>Miasto</th>
         <th>Ulica</th>
+        <th>Nr_budynku</th>
         <th>Nr_lokalu</th>
         <th>Kod_pocztowy</th>
         <th>Action</th>
@@ -31,8 +33,12 @@
         <td th:text = "${adres.kraj}">Kraj</td>
         <td th:text = "${adres.miasto}">Miasto</td>
         <td th:text = "${adres.ulica}">Ulica</td>
+        <td th:text = "${adres.nr_budynku}">Nr_budynku</td>
         <td th:text = "${adres.nr_lokalu}">Nr_lokalu</td>
         <td th:text = "${adres.kod_pocztowy}">Kod_pocztowy</td>
+        <td>
+            <a th:href="@{'/edit/' + ${adres.nr_adresu}}">Edit</a>
+        </td>
     </tr>
     </tbody>
 </table>
