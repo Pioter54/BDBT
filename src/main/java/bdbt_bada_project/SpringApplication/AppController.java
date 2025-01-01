@@ -38,18 +38,18 @@ public class AppController implements WebMvcConfigurer {
             model.addAttribute("listAdres", listAdres);
             return "admin/adresy_admin";
         }
-        @RequestMapping("/new")
+        @RequestMapping("/new_adres")
         public String showNewForm(Model model){
             Adres adres = new Adres();
             model.addAttribute("adres", adres);
             return "admin/new_form_adresy";
         }
-        @RequestMapping(value = "/save", method = RequestMethod.POST)
+        @RequestMapping(value = "/save_adres", method = RequestMethod.POST)
         public String save(@ModelAttribute("adres") Adres adres){
             dao.save(adres);
             return "redirect:/adresy_admin";
         }
-        @RequestMapping("/edit/{nr_adresu}")
+        @RequestMapping("/edit_adres/{nr_adresu}")
         public ModelAndView showEditForm(@PathVariable(name = "nr_adresu") int nr_adresu){
             ModelAndView mav = new ModelAndView("admin/edit_form_adresy");
             Adres adres = dao.get(nr_adresu);
@@ -61,7 +61,7 @@ public class AppController implements WebMvcConfigurer {
             dao.update(adres);
             return "redirect:/adresy_admin";
         }
-        @RequestMapping(value = "/delete/{nr_adresu}")
+        @RequestMapping(value = "/delete_adres/{nr_adresu}")
         public String delete(@PathVariable(name = "nr_adresu") int nr_adresu){
             dao.delete(nr_adresu);
             return "redirect:/adresy_admin";

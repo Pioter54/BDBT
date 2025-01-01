@@ -9,7 +9,7 @@
 <div align="center">
     <!-- Page header -->
     <h1>Adresy</h1>
-    <a href="/new">Dodaj nowy adres</a>
+    <a href="/new_adres">Dodaj nowy adres</a>
     <br/><br/>
 <!-- Table -->
 <table border = "1" cellpadding = "10">
@@ -37,9 +37,9 @@
         <td th:text = "${adres.nr_lokalu}">Nr_lokalu</td>
         <td th:text = "${adres.kod_pocztowy}">Kod_pocztowy</td>
         <td>
-            <a th:href="@{'/edit/' + ${adres.nr_adresu}}">Edit</a>
+            <a th:href="@{'/edit_adres/' + ${adres.nr_adresu}}">Edit</a>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <a th:href="@{'/delete/' + ${adres.nr_adresu}}">Delete</a>
+            <a th:href="@{'/delete_adres/' + ${adres.nr_adresu}}">Delete</a>
         </td>
     </tr>
     </tbody>
