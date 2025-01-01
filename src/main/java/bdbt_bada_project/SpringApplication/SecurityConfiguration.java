@@ -32,11 +32,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/index").permitAll()
                 .antMatchers("/resources/static/**").permitAll()
                 .antMatchers("/main").authenticated()
+
                 .antMatchers("/main_admin").access("hasRole('ADMIN')")
                 .antMatchers("/adresy_admin").access("hasRole('ADMIN')")
                 .antMatchers("/edit_form_adresy").access("hasRole('ADMIN')")
                 .antMatchers("/new_form_adresy").access("hasRole('ADMIN')")
+                .antMatchers("/new_adres").access("hasRole('ADMIN')")
+                .antMatchers("/update_adres").access("hasRole('ADMIN')")
+                .antMatchers("/save_adres").access("hasRole('ADMIN')")
+                .antMatchers("/edit_adres/{nr_adresu}").access("hasRole('ADMIN')")
+                .antMatchers("/delete_adres/{nr_adresu}").access("hasRole('ADMIN')")
+
                 .antMatchers("/main_user").access("hasRole('USER')")
+
                 .and()
                 .formLogin()
                 .loginPage("/login")
