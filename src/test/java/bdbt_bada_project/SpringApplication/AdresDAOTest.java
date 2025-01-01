@@ -36,7 +36,7 @@ class AdresDAOTest extends Object {
 
     @Test
     void get() {
-        int nr_adresu = 3;
+        int nr_adresu = 3; //ten test przejdzie tylko jeśli adres o takim id istnieje w bazie danych
         Adres adres = dao.get(nr_adresu);
         assertNotNull(adres);
     }
