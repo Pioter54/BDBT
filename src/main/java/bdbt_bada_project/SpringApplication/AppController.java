@@ -56,7 +56,7 @@ public class AppController implements WebMvcConfigurer {
             mav.addObject("adres", adres);
             return mav;
         }
-        @RequestMapping(value = "/update", method = RequestMethod.POST)
+        @RequestMapping(value = "/update_adres", method = RequestMethod.POST)
         public String update(@ModelAttribute("adres") Adres adres){
             dao.update(adres);
             return "redirect:/adresy_admin";
