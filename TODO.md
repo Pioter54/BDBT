@@ -13,15 +13,21 @@ Zrobione i do zrobienia
 - [x] Poprawa wyglądu i funkcjonalności main_admin.html
 - [x] Zabezpieczenie tabeli ADRESY
 - [x] Poprawa wyglądu tabeli strony z tabelą ADRESY
-- [ ] Zabezpieczenie tabeli przed dodawaniem złego wypu danych
-- [ ] Wybranie i dodanie więcej tabeli dla widoku admina
-- [ ] Wybranie i dodanie tabeli dla widoku użytkownika
 - [ ] Dodanie możliwości rejstrowania nowych użytkowników
-- [ ] Dodanie adminowi możliwości zarządzania użytkownikowi (pewie jako tabela)
-- [ ] Zrobienie popup po kliknięciu usuń z zatwierdzeniem (przy usuwaniu użytkownika to może być popup który pyta o hasło admina)
+- [ ] Stworzenie w bazie danych tabeli przechowywującej emaile, hasła i jako klucz obcy Nr_czlonka_klubu
+- [ ] Dodanie dla widoku admina tabeli użytkownicy (czy jak tam się nazywała)
+- [ ] Dodanie dla widoku admina tabeli wyprawy
+- [ ] Dodanie dla widoku admina tabeli schroniska
+- [ ] Dodanie dla widoku admina jeszcze jakiejś tabeli (może pracownich albo schroniska)
+- [ ] Dodanie dla widoku użytkownika tabeli wyprawy (bez możliwiści edytowania ale z możliwością zapisu na wyprawę)
+- [ ] Dodanie użytkownikowi możliwości edytowania swoich danych (oczywiście nie wszystkich)
+- [ ] Zabezpieczenie wszytskich tabeli przed dodawaniem złego wypu danych
+- [ ] Dodanie adminowi możliwości zarządzania użytkownikowi (jako tabela)
+- [ ] Zrobienie popup po kliknięciu usuń z zatwierdzeniem (przy usuwaniu użytkownika i/lub pracownika to może być popup który pyta o hasło admina)
 - [ ] **Opcjonalne:** Dodanie zabezpieczeń przed SQL injection
 - [ ] **Opcjonalne:** Dodanie zabezpieczeń przed XSS
 - [ ] **Opcjonalne:** Dodanie zabezpieczeń przed HTML Injection 
 - [ ] Dodanie jakiegoś stylu CSS (może być jakiś z generatora)
 - [ ] Zadbanie o wygląd i klarowność strony
 - [ ] Zrobienie ładniejszych stron błędów
+- [ ] Usująć wszystkie literówki
