@@ -13,8 +13,8 @@ Zrobione i do zrobienia
 - [x] Poprawa wyglądu i funkcjonalności main_admin.html
 - [x] Zabezpieczenie tabeli ADRESY
 - [x] Poprawa wyglądu tabeli strony z tabelą ADRESY
+- [x] Stworzenie w bazie danych tabeli przechowywującej emaile, hasła i jako klucz obcy Nr_czlonka_klubu
 - [ ] Dodanie możliwości rejstrowania nowych użytkowników
-- [ ] Stworzenie w bazie danych tabeli przechowywującej emaile, hasła i jako klucz obcy Nr_czlonka_klubu
 - [ ] Dodanie dla widoku admina tabeli użytkownicy (czy jak tam się nazywała)
 - [ ] Dodanie dla widoku admina tabeli wyprawy
 - [ ] Dodanie dla widoku admina tabeli schroniska
