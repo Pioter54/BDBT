@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nowy Członek Klubu</title>
+</head>
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Dodaj nowego członka klubu</h1>
+
+    <br/>
+    <!-- End line/new line -->
+    <form action="@{/save_czlonek}" th:action="@{/save_czlonek}" th:object="${czlonek}" method="post">
+        <!-- Table -->
+        <table border="1" cellpadding="10">
+            <!-- Table row -->
+            <tr>
+                <td>Imie</td>
+                <td><input type="text" th:field="*{imie}"></td>
+            </tr>
+            <tr>
+                <td>Nazwisko</td>
+                <td><input type="text" th:field="*{nazwisko}"></td>
+            </tr>
+            <tr>
+                <td>Pesel:</td>
+                <td><input type="text" th:field="*{pesel}"/></td>
+            </tr>
+            <tr>
+                <td>Data_urodzenia:</td>
+                <td><input type="date" th:field="*{data_urodzenia}"/></td>
+            </tr>
+            <tr>
+                <td>Plec:</td>
+                <td><input type="text" th:field="*{plec}"/></td>
+            </tr>
+            <tr>
+                <td>Telefon:</td>
+                <td><input type="text" th:field="*{telefon}"/></td>
+            </tr>
+            <tr>
+                <td>Data_dolaczenia:</td>
+                <td><input type="date" th:field="*{data_dolaczenia}"/></td>
+            </tr>
+            <tr>
+                <td>Data_odejscia:</td>
+                <td><input type="date" th:field="*{data_odejscia}"/></td>
+            </tr>
+            <tr>
+                <td>Nr_adresu:</td>
+                <td><input type="text" th:field="*{nr_adresu}"/></td>
+            </tr>
+
+            <!-- Button save -->
+            <tr>
+                <td colspan="2"><button type="submit">Zapisz</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
