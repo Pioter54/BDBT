@@ -34,6 +34,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/main").authenticated()
 
                 .antMatchers("/main_admin").access("hasRole('ADMIN')")
+
                 .antMatchers("/adresy_admin").access("hasRole('ADMIN')")
                 .antMatchers("/edit_form_adresy").access("hasRole('ADMIN')")
                 .antMatchers("/new_form_adresy").access("hasRole('ADMIN')")
@@ -42,6 +43,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/save_adres").access("hasRole('ADMIN')")
                 .antMatchers("/edit_adres/{nr_adresu}").access("hasRole('ADMIN')")
                 .antMatchers("/delete_adres/{nr_adresu}").access("hasRole('ADMIN')")
+
+                .antMatchers("/czlonkowie_klubu_admin").access("hasRole('ADMIN')")
+                .antMatchers("/edit_form_czlonkowie_klubu").access("hasRole('ADMIN')")
+                .antMatchers("/new_form_czlonkowie_klubu").access("hasRole('ADMIN')")
+                .antMatchers("/new_czlonek").access("hasRole('ADMIN')")
+                .antMatchers("/update_czlonek").access("hasRole('ADMIN')")
+                .antMatchers("/save_czlonek").access("hasRole('ADMIN')")
+                .antMatchers("/edit_czlonek/{nr_czlonka_klubu}").access("hasRole('ADMIN')")
+                .antMatchers("/delete_czlonek/{nrCzlonkaKlubu}").access("hasRole('ADMIN')")
 
                 .antMatchers("/main_user").access("hasRole('USER')")
 

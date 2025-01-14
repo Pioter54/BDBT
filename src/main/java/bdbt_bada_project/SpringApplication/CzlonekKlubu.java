@@ -1,5 +1,8 @@
 package bdbt_bada_project.SpringApplication;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 
 public class CzlonekKlubu {
@@ -7,12 +10,20 @@ public class CzlonekKlubu {
     private String Imie;
     private String Nazwisko;
     private String Pesel;
-    private LocalDate Data_urodzenia;
     private String Plec;
     private String Telefon;
-    private LocalDate Data_dolaczenia;
-    private LocalDate Data_odejscia;
     private int Nr_adresu;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate Data_urodzenia;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate Data_dolaczenia;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate Data_odejscia;
 
     public CzlonekKlubu() {
     }
