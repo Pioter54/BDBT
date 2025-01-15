@@ -3,10 +3,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -21,6 +19,7 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/main").setViewName("main");
         registry.addViewController("/login").setViewName("login");
+        registry.addViewController("/register").setViewName("registration");
         registry.addViewController("/main_admin").setViewName("admin/main_admin");
         registry.addViewController("/main_user").setViewName("user/main_user");
         registry.addViewController("/adresy_admin").setViewName("admin/adresy_admin");
@@ -38,6 +37,9 @@ public class AppController implements WebMvcConfigurer {
 
         @Autowired
         private CzlonekKlubuDAO czlonekKlubuDAO;
+
+        @Autowired
+        private LoginDAO loginDAO;
 
         @RequestMapping("/adresy_admin")
         public String viewAdresy(Model model) {
@@ -129,6 +131,42 @@ public class AppController implements WebMvcConfigurer {
                 return "redirect:/index";
             }
         }
+
+        @RequestMapping("/register")
+        public String showRegistrationForm(Model model) {
+            UserRegistrationDTO userRegistration = new UserRegistrationDTO();
+            userRegistration.setCzlonek(new CzlonekKlubu());
+            userRegistration.setAdres(new Adres());
+            userRegistration.setLoginData(new LoginData());
+            model.addAttribute("userRegistration", userRegistration);
+            return "registration";
+        }
+
+
+        @RequestMapping(value = "/register/save", method = RequestMethod.POST)
+        public String registerUser(@ModelAttribute("userRegistration") UserRegistrationDTO userRegistration) {
+            // Zapisz adres i uzyskaj jego ID
+            Adres adres = userRegistration.getAdres();
+            int nrAdresu = adresDAO.saveAndReturnId(adres);
+
+            // Powiąż nr_adresu z członkiem klubu
+            CzlonekKlubu czlonek = userRegistration.getCzlonek();
+            czlonek.setNr_adresu(nrAdresu);
+
+            // Zapisz członka klubu i uzyskaj jego ID
+            int nrCzlonkaKlubu = czlonekKlubuDAO.saveAndReturnId(czlonek);
+
+            // Zapisz dane logowania
+            LoginData loginData = userRegistration.getLoginData();
+            loginData.setNrCzlonkaKlubu(nrCzlonkaKlubu);
+            loginDAO.save(loginData);
+
+            return "redirect:/login";
+        }
+
+
+
+
     }
 
     @RequestMapping(value = {"/main_admin"})
@@ -140,4 +178,6 @@ public class AppController implements WebMvcConfigurer {
     public String showUserPage(Model model) {
         return "user/main_user";
     }
+
+
 }

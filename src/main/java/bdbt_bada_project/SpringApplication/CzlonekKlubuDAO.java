@@ -1,6 +1,7 @@
 // CzlonekKlubuDAO.java
 package bdbt_bada_project.SpringApplication;
 
+import java.sql.Date;
 import java.util.List;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -29,11 +30,18 @@ public class CzlonekKlubuDAO {
 
     public void save(CzlonekKlubu czlonekKlubu) {
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-        insertActor.withTableName("czlonkowie_klubu").usingColumns("pesel", "imie", "nazwisko", "data_urodzenia", "plec", "telefon", "data_dolaczenia", "data_odejscia", "nr_adresu");
+        insertActor.withTableName("czlonkowie_klubu")
+                .usingColumns("pesel", "imie", "nazwisko", "data_urodzenia", "plec", "telefon", "data_dolaczenia", "data_odejscia", "nr_adresu");
+
+        // Jeśli data dołączenia jest null, ustaw na aktualną datę
+        if (czlonekKlubu.getData_dolaczenia() == null) {
+            czlonekKlubu.setData_dolaczenia(new Date(System.currentTimeMillis()).toLocalDate());
+        }
 
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(czlonekKlubu);
         insertActor.execute(param);
     }
+
 
     public CzlonekKlubu get(int Nr_czlonka_klubu) {
         Object[] args = {Nr_czlonka_klubu};
@@ -53,4 +61,19 @@ public class CzlonekKlubuDAO {
         String sql = "DELETE FROM CZLONKOWIE_KLUBU WHERE nr_czlonka_klubu = ?";
         jdbcTemplate.update(sql, Nr_czlonka_klubu);
     }
+
+    public int saveAndReturnId(CzlonekKlubu czlonekKlubu) {
+        SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate)
+                .withTableName("czlonkowie_klubu")
+                .usingGeneratedKeyColumns("nr_czlonka_klubu");
+
+        if (czlonekKlubu.getData_dolaczenia() == null) {
+            czlonekKlubu.setData_dolaczenia(new Date(System.currentTimeMillis()).toLocalDate());
+        }
+
+        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(czlonekKlubu);
+        Number key = insertActor.executeAndReturnKey(param);
+        return key.intValue();
+    }
+
 }

@@ -11,8 +11,8 @@
     <groupId>bdbt.project</groupId>
     <artifactId>KortTenisowy</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>KortTenisowy</name>
-    <description>KortTenisowy</description>
+    <name>KlubWysokogorski</name>
+    <description>KlubWysokogorski</description>
     <url/>
     <licenses>
         <license/>
@@ -103,6 +103,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
     </dependencies>
 

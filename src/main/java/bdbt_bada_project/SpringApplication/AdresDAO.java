@@ -55,5 +55,15 @@ public class AdresDAO {
         String sql = "DELETE FROM ADRESY WHERE Nr_adresu = ?";
         jdbcTemplate.update(sql, Nr_adresu);
     }
+    public int saveAndReturnId(Adres adres) {
+        SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate)
+                .withTableName("adresy")
+                .usingGeneratedKeyColumns("nr_adresu"); // Wskazanie klucza głównego generowanego przez bazę
+
+        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(adres);
+        Number key = insertActor.executeAndReturnKey(param); // Pobierz wygenerowany klucz główny
+        return key.intValue(); // Zwróć klucz jako int
+    }
+
 
 }

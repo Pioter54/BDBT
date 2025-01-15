@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Rejestracja</title>
+</head>
+<body>
+<h1>Formularz rejestracji</h1>
+<form th:action="@{/register/save}" th:object="${userRegistration}" method="post">
+  <fieldset>
+    <legend>Dane członka klubu</legend>
+    <input type="text" th:field="*{czlonek.pesel}" placeholder="PESEL" required/><br/>
+    <input type="text" th:field="*{czlonek.imie}" placeholder="Imię" required/><br/>
+    <input type="text" th:field="*{czlonek.nazwisko}" placeholder="Nazwisko" required/><br/>
+    <input type="date" th:field="*{czlonek.data_urodzenia}" placeholder="Data urodzenia" required/><br/>
+    <input type="text" th:field="*{czlonek.plec}" placeholder="Płeć" required/><br/>
+    <input type="text" th:field="*{czlonek.telefon}" placeholder="Telefon" required/><br/>
+  </fieldset>
+  <fieldset>
+    <legend>Adres</legend>
+    <input type="text" th:field="*{adres.kraj}" placeholder="Kraj" required/><br/>
+    <input type="text" th:field="*{adres.miasto}" placeholder="Miasto" required/><br/>
+    <input type="text" th:field="*{adres.ulica}" placeholder="Ulica" required/><br/>
+    <input type="text" th:field="*{adres.nr_budynku}" placeholder="Nr budynku" required/><br/>
+    <input type="text" th:field="*{adres.nr_lokalu}" placeholder="Nr lokalu"/><br/>
+    <input type="text" th:field="*{adres.kod_pocztowy}" placeholder="Kod pocztowy" required/><br/>
+  </fieldset>
+  <fieldset>
+    <legend>Dane logowania</legend>
+    <input type="email" th:field="*{loginData.email}" placeholder="Email" required/><br/>
+    <input type="password" th:field="*{loginData.password}" placeholder="Hasło" required/><br/>
+  </fieldset>
+  <button type="submit">Zarejestruj</button>
+</form>
+</body>
+</html>
