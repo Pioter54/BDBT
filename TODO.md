@@ -16,13 +16,13 @@ Zrobione i do zrobienia
 - [x] Stworzenie w bazie danych tabeli przechowywującej emaile, hasła i jako klucz obcy Nr_czlonka_klubu
 - [x] Dodanie dla widoku admina tabeli użytkownicy (czy jak tam się nazywała)
 - [x] Dodanie możliwości rejstrowania nowych użytkowników
-- [ ] Dodanie możliwości logowania się użytkowników dodanych podczas rejstracji
+- [x] Dodanie możliwości logowania się użytkowników dodanych podczas rejstracji
 - [ ] Dodanie że przy usunięciu jednej tabeli usuwają się też tabele powiązane (np. przy usunięciu adresu usuwa się odpowiadający mu użytkownik)
 - [ ] Połączenie (przy dodawaniu lub edytowaniu) tabeli czlonkowie_klubu i adresy
 - [ ] Dodanie dla widoku admina tabeli wyprawy
 - [ ] Dodanie dla widoku admina tabeli schroniska
 - [ ] Dodanie dla widoku użytkownika tabeli wyprawy (bez możliwiści edytowania ale z możliwością zapisu na wyprawę)
-- [ ] Dodanie użytkownikowi możliwości edytowania swoich danych (oczywiście nie wszystkich)
+- [ ] Dodanie użytkownikowi możliwości edytowania **swoich** danych (oczywiście nie wszystkich)
 - [ ] Zabezpieczenie wszytskich tabeli przed dodawaniem złego wypu danych
 - [ ] Dodanie adminowi możliwości zarządzania użytkownikowi (jako tabela)
 - [ ] Zrobienie popup po kliknięciu usuń z zatwierdzeniem (przy usuwaniu użytkownika i/lub pracownika to może być popup który pyta o hasło admina)

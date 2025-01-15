@@ -1,6 +1,7 @@
 package bdbt_bada_project.SpringApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -143,6 +144,9 @@ public class AppController implements WebMvcConfigurer {
         }
 
 
+        @Autowired
+        private PasswordEncoder passwordEncoder;
+
         @RequestMapping(value = "/register/save", method = RequestMethod.POST)
         public String registerUser(@ModelAttribute("userRegistration") UserRegistrationDTO userRegistration) {
             // Zapisz adres i uzyskaj jego ID
@@ -156,16 +160,17 @@ public class AppController implements WebMvcConfigurer {
             // Zapisz członka klubu i uzyskaj jego ID
             int nrCzlonkaKlubu = czlonekKlubuDAO.saveAndReturnId(czlonek);
 
-            // Zapisz dane logowania
+            // Szyfruj hasło przed zapisaniem
             LoginData loginData = userRegistration.getLoginData();
+            String encodedPassword = passwordEncoder.encode(loginData.getPassword());
+            loginData.setPassword(encodedPassword);
+
+            // Przypisz nr_czlonka_klubu i zapisz dane logowania
             loginData.setNrCzlonkaKlubu(nrCzlonkaKlubu);
             loginDAO.save(loginData);
 
             return "redirect:/login";
         }
-
-
-
 
     }
 

@@ -6,25 +6,42 @@ import
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import javax.sql.DataSource;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+    private final DataSource dataSource;
+
+    public SecurityConfiguration(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication()
+                .dataSource(dataSource)
+                .usersByUsernameQuery("SELECT email, password, 'true' FROM DANE_LOGOWANIA WHERE email = ?")
+                .authoritiesByUsernameQuery(
+                        "SELECT l.email, 'ROLE_USER' " +
+                                "FROM DANE_LOGOWANIA l " +
+                                "WHERE l.email = ?")
+                .passwordEncoder(passwordEncoder());
+
+        // Konfiguracja administratorów w pamięci
         auth.inMemoryAuthentication()
-                .withUser("user")
-                .password("user")
-                .roles("USER")
-                .and()
                 .withUser("admin")
-                .password("admin")
+                .password(passwordEncoder().encode("admin")) // Szyfrowane hasło dla admina
                 .roles("ADMIN");
     }
     @Bean
-    public PasswordEncoder getPasswordEncoder() { return NoOpPasswordEncoder.getInstance();
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
