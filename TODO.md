@@ -14,12 +14,11 @@ Zrobione i do zrobienia
 - [x] Zabezpieczenie tabeli ADRESY
 - [x] Poprawa wyglądu tabeli strony z tabelą ADRESY
 - [x] Stworzenie w bazie danych tabeli przechowywującej emaile, hasła i jako klucz obcy Nr_czlonka_klubu
-- [ ] Dodanie możliwości rejstrowania nowych użytkowników
 - [x] Dodanie dla widoku admina tabeli użytkownicy (czy jak tam się nazywała)
+- [ ] Dodanie możliwości rejstrowania nowych użytkowników
 - [ ] Połączenie (przy dodawaniu lub edytowaniu) tabeli czlonkowie_klubu i adresy
 - [ ] Dodanie dla widoku admina tabeli wyprawy
 - [ ] Dodanie dla widoku admina tabeli schroniska
-- [ ] Dodanie dla widoku admina jeszcze jakiejś tabeli (może pracownich albo schroniska)
 - [ ] Dodanie dla widoku użytkownika tabeli wyprawy (bez możliwiści edytowania ale z możliwością zapisu na wyprawę)
 - [ ] Dodanie użytkownikowi możliwości edytowania swoich danych (oczywiście nie wszystkich)
 - [ ] Zabezpieczenie wszytskich tabeli przed dodawaniem złego wypu danych
