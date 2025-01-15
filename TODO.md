@@ -15,7 +15,9 @@ Zrobione i do zrobienia
 - [x] Poprawa wyglądu tabeli strony z tabelą ADRESY
 - [x] Stworzenie w bazie danych tabeli przechowywującej emaile, hasła i jako klucz obcy Nr_czlonka_klubu
 - [x] Dodanie dla widoku admina tabeli użytkownicy (czy jak tam się nazywała)
-- [ ] Dodanie możliwości rejstrowania nowych użytkowników
+- [x] Dodanie możliwości rejstrowania nowych użytkowników
+- [ ] Dodanie możliwości logowania się użytkowników dodanych podczas rejstracji
+- [ ] Dodanie że przy usunięciu jednej tabeli usuwają się też tabele powiązane (np. przy usunięciu adresu usuwa się odpowiadający mu użytkownik)
 - [ ] Połączenie (przy dodawaniu lub edytowaniu) tabeli czlonkowie_klubu i adresy
 - [ ] Dodanie dla widoku admina tabeli wyprawy
 - [ ] Dodanie dla widoku admina tabeli schroniska
