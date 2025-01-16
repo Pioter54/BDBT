@@ -17,12 +17,13 @@ Zrobione i do zrobienia
 - [x] Dodanie dla widoku admina tabeli użytkownicy (czy jak tam się nazywała)
 - [x] Dodanie możliwości rejstrowania nowych użytkowników
 - [x] Dodanie możliwości logowania się użytkowników dodanych podczas rejstracji
-- [ ] Dodanie że przy usunięciu jednej tabeli usuwają się też tabele powiązane (np. przy usunięciu adresu usuwa się odpowiadający mu użytkownik)
-- [ ] Połączenie (przy dodawaniu lub edytowaniu) tabeli czlonkowie_klubu i adresy
+- [x] Dodanie że przy usunięciu jednej tabeli usuwają się też tabele powiązane (przy usunięciu adresu usuwa się odpowiadający mu użytkownik)
+- [ ] Dodanie że przy usunięciu jednej tabeli usuwają się też tabele powiązane (dodaie dla innych tabeli)
+- [ ] Dodanie użytkownikowi możliwości edytowania **swoich** danych (oczywiście nie wszystkich)
+- [ ] Połączenie (przy dodawaniu i edytowaniu) tabeli czlonkowie_klubu i adresy
 - [ ] Dodanie dla widoku admina tabeli wyprawy
 - [ ] Dodanie dla widoku admina tabeli schroniska
 - [ ] Dodanie dla widoku użytkownika tabeli wyprawy (bez możliwiści edytowania ale z możliwością zapisu na wyprawę)
-- [ ] Dodanie użytkownikowi możliwości edytowania **swoich** danych (oczywiście nie wszystkich)
 - [ ] Zabezpieczenie wszytskich tabeli przed dodawaniem złego wypu danych
 - [ ] Dodanie adminowi możliwości zarządzania użytkownikowi (jako tabela)
 - [ ] Zrobienie popup po kliknięciu usuń z zatwierdzeniem (przy usuwaniu użytkownika i/lub pracownika to może być popup który pyta o hasło admina)
