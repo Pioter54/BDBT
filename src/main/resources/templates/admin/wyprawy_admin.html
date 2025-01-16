@@ -2,9 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Main Admin Page</title>
+    <title>Wyprawy Admin</title>
 
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>
     <style>
         .navbar-brand {
             color: white !important;
@@ -24,19 +24,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/adresy_admin}">Adresy
-                        <span class="sr-only">(current)</span>
-                    </a>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/adresy_admin}">Adresy</a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/czlonkowie_klubu_admin}">Członkowie Klubu</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/wyprawy_admin}">Wyprawy</a>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/wyprawy_admin}">Wyprawy
+                        <span class="sr-only">(current)</span>
+                    </a>
                 </li>
 
                 <li class="nav-item">
@@ -53,57 +52,52 @@
                         </button>
                     </form>
                 </li>
-
             </ul>
         </div>
     </div>
 </nav>
 
 <div align="center">
-    <h1>Adresy</h1>
+    <h1>Wyprawy</h1>
     <!-- Page header -->
-    <a href="/new_adres">Dodaj nowy adres</a>
+    <a href="/new_wyprawa">Dodaj nową wyprawę</a>
     <br/><br/>
-<!-- Table -->
-<table border = "1" cellpadding = "10">
-    <style>
-        th, td {
-            text-align: center; /* Centrowanie tekstu w poziomie */
-            vertical-align: middle; /* Centrowanie tekstu w pionie */
-        }
-    </style>
+    <!-- Table -->
+    <table border="1" cellpadding="10">
+        <style>
+            th, td {
+                text-align: center;
+                vertical-align: middle;
+            }
+        </style>
 
-    <!-- Table header -->
-    <thead>
-    <tr> <!-- Table row -->
-        <th>Nr_adresu</th> <!–- Table column -->
-        <th>Kraj</th>
-        <th>Miasto</th>
-        <th>Ulica</th>
-        <th>Nr_budynku</th>
-        <th>Nr_lokalu</th>
-        <th>Kod_pocztowy</th>
-        <th>Action</th>
-    </tr>
-    </thead>
-    <!-- Table body -->
-    <tbody>
-    <tr th:each = "adres : ${listAdres}">
-        <td th:text = "${adres.nr_adresu}">Nr_adresu</td>
-        <td th:text = "${adres.kraj}">Kraj</td>
-        <td th:text = "${adres.miasto}">Miasto</td>
-        <td th:text = "${adres.ulica}">Ulica</td>
-        <td th:text = "${adres.nr_budynku}">Nr_budynku</td>
-        <td th:text = "${adres.nr_lokalu}">Nr_lokalu</td>
-        <td th:text = "${adres.kod_pocztowy}">Kod_pocztowy</td>
-        <td>
-            <a th:href="@{'/edit_adres/' + ${adres.nr_adresu}}">Edit</a>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <a th:href="@{'/delete_adres/' + ${adres.nr_adresu}}">Delete</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+        <!-- Table header -->
+        <thead>
+        <tr>
+            <th>Nr_wycieczki</th>
+            <th>Data_od</th>
+            <th>Data_do</th>
+            <th>Opis</th>
+            <th>Cena</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <!-- Table body -->
+        <tbody>
+        <tr th:each="wyprawa : ${listWyprawy}">
+            <td th:text="${wyprawa.nr_wycieczki}">Nr_wycieczki</td>
+            <td th:text="${wyprawa.data_od}">Data_od</td>
+            <td th:text="${wyprawa.data_do}">Data_do</td>
+            <td th:text="${wyprawa.opis}">Opis</td>
+            <td th:text="${wyprawa.cena}">Cena</td>
+            <td>
+                <a th:href="@{'/edit_wyprawa/' + ${wyprawa.nr_wycieczki}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete_wyprawa/' + ${wyprawa.nr_wycieczki}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>

@@ -29,6 +29,9 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/czlonkowie_klubu_admin").setViewName("admin/czlonkowie_klubu_admin");
         registry.addViewController("/edit_form_czlonkowie").setViewName("admin/edit_form_czlonkowie_klubu");
         registry.addViewController("/new_form_czlonkowie").setViewName("admin/new_form_czlonkowie_klubu");
+        registry.addViewController("/wyprawy_admin").setViewName("admin/wyprawy_admin");
+        registry.addViewController("/edit_form_wyprawy").setViewName("admin/edit_form_wyprawy");
+        registry.addViewController("/new_form_wyprawy").setViewName("admin/new_form_wyprawy");
     }
 
     @Controller
@@ -41,6 +44,9 @@ public class AppController implements WebMvcConfigurer {
 
         @Autowired
         private LoginDAO loginDAO;
+
+        @Autowired
+        private WyprawaDAO wyprawaDAO;
 
         @RequestMapping("/adresy_admin")
         public String viewAdresy(Model model) {
@@ -172,6 +178,45 @@ public class AppController implements WebMvcConfigurer {
             return "redirect:/login";
         }
 
+        @RequestMapping("/wyprawy_admin")
+        public String viewWyprawy(Model model) {
+            List<Wyprawa> listWyprawy = wyprawaDAO.list();
+            model.addAttribute("listWyprawy", listWyprawy);
+            return "admin/wyprawy_admin";
+        }
+
+        @RequestMapping("/new_wyprawa")
+        public String showNewWyprawaForm(Model model) {
+            Wyprawa wyprawa = new Wyprawa();
+            model.addAttribute("wyprawa", wyprawa);
+            return "admin/new_form_wyprawy";
+        }
+
+        @RequestMapping(value = "/save_wyprawa", method = RequestMethod.POST)
+        public String saveWyprawa(@ModelAttribute("wyprawa") Wyprawa wyprawa) {
+            wyprawaDAO.save(wyprawa);
+            return "redirect:/wyprawy_admin";
+        }
+
+        @RequestMapping("/edit_wyprawa/{nr_wycieczki}")
+        public ModelAndView showEditWyprawaForm(@PathVariable(name = "nr_wycieczki") int nr_wycieczki) {
+            ModelAndView mav = new ModelAndView("admin/edit_form_wyprawy");
+            Wyprawa wyprawa = wyprawaDAO.get(nr_wycieczki);
+            mav.addObject("wyprawa", wyprawa);
+            return mav;
+        }
+
+        @RequestMapping(value = "/update_wyprawa", method = RequestMethod.POST)
+        public String updateWyprawa(@ModelAttribute("wyprawa") Wyprawa wyprawa) {
+            wyprawaDAO.update(wyprawa);
+            return "redirect:/wyprawy_admin";
+        }
+
+        @RequestMapping(value = "/delete_wyprawa/{nr_wycieczki}")
+        public String deleteWyprawa(@PathVariable(name = "nr_wycieczki") int nr_wycieczki) {
+            wyprawaDAO.delete(nr_wycieczki);
+            return "redirect:/wyprawy_admin";
+        }
     }
 
     @RequestMapping(value = {"/main_admin"})

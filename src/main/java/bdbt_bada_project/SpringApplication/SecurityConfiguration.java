@@ -70,6 +70,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/edit_czlonek/{nr_czlonka_klubu}").access("hasRole('ADMIN')")
                 .antMatchers("/delete_czlonek/{nrCzlonkaKlubu}").access("hasRole('ADMIN')")
 
+                .antMatchers("/wyprawy_admin").access("hasRole('ADMIN')")
+                .antMatchers("/edit_form_wyprawa").access("hasRole('ADMIN')")
+                .antMatchers("/new_form_wyprawa").access("hasRole('ADMIN')")
+                .antMatchers("/new_wyprawa").access("hasRole('ADMIN')")
+                .antMatchers("/update_wyprawa").access("hasRole('ADMIN')")
+                .antMatchers("/save_wyprawa").access("hasRole('ADMIN')")
+                .antMatchers("/edit_wyprawa/{nr_wycieczki}").access("hasRole('ADMIN')")
+                .antMatchers("/delete_wyprawa/{nr_wycieczki}").access("hasRole('ADMIN')")
+
                 .antMatchers("/main_user").access("hasRole('USER')")
 
                 .and()

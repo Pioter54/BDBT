@@ -18,19 +18,19 @@ Zrobione i do zrobienia
 - [x] Dodanie możliwości rejstrowania nowych użytkowników
 - [x] Dodanie możliwości logowania się użytkowników dodanych podczas rejstracji
 - [x] Dodanie że przy usunięciu jednej tabeli usuwają się też tabele powiązane (przy usunięciu adresu usuwa się odpowiadający mu użytkownik)
-- [ ] Dodanie że przy usunięciu jednej tabeli usuwają się też tabele powiązane (dodaie dla innych tabeli)
-- [ ] Dodanie użytkownikowi możliwości edytowania **swoich** danych (oczywiście nie wszystkich)
-- [ ] Połączenie (przy dodawaniu i edytowaniu) tabeli czlonkowie_klubu i adresy
-- [ ] Dodanie dla widoku admina tabeli wyprawy
-- [ ] Dodanie dla widoku admina tabeli schroniska
-- [ ] Dodanie dla widoku użytkownika tabeli wyprawy (bez możliwiści edytowania ale z możliwością zapisu na wyprawę)
-- [ ] Zabezpieczenie wszytskich tabeli przed dodawaniem złego wypu danych
+- [x] Dodanie dla widoku admina tabeli wyprawy
 - [ ] Dodanie adminowi możliwości zarządzania użytkownikowi (jako tabela)
+- [ ] Dodanie dla widoku użytkownika tabeli wyprawy (bez możliwiści edytowania ale z możliwością zapisu na wyprawę)
+- [ ] Dodanie użytkownikowi możliwości edytowania **swoich** danych (oczywiście nie wszystkich)
+- [ ] Zabezpieczenie wszytskich tabeli przed dodawaniem złego wypu danych
+- [ ] Połączenie (przy dodawaniu i edytowaniu) tabeli czlonkowie_klubu i adresy
+- [ ] Dodanie jakiegoś stylu CSS (może być jakiś z generatora)
+- [ ] Dodanie że przy usunięciu jednej tabeli usuwają się też tabele powiązane (dodaie dla innych tabeli)
+- [ ] **Nie na złoty strzał (za mało czasu)** Dodanie dla widoku admina tabeli schroniska
 - [ ] Zrobienie popup po kliknięciu usuń z zatwierdzeniem (przy usuwaniu użytkownika i/lub pracownika to może być popup który pyta o hasło admina)
 - [ ] **Opcjonalne:** Dodanie zabezpieczeń przed SQL injection
 - [ ] **Opcjonalne:** Dodanie zabezpieczeń przed XSS
 - [ ] **Opcjonalne:** Dodanie zabezpieczeń przed HTML Injection 
-- [ ] Dodanie jakiegoś stylu CSS (może być jakiś z generatora)
 - [ ] Zadbanie o wygląd i klarowność strony
 - [ ] Zrobienie ładniejszych stron błędów
 - [ ] Usująć wszystkie literówki
