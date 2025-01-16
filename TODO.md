@@ -19,18 +19,20 @@ Zrobione i do zrobienia
 - [x] Dodanie możliwości logowania się użytkowników dodanych podczas rejstracji
 - [x] Dodanie że przy usunięciu jednej tabeli usuwają się też tabele powiązane (przy usunięciu adresu usuwa się odpowiadający mu użytkownik)
 - [x] Dodanie dla widoku admina tabeli wyprawy
-- [ ] Dodanie adminowi możliwości zarządzania użytkownikowi (jako tabela)
+- [ ] Połączenie (przy dodawaniu i edytowaniu) tabeli czlonkowie_klubu i adresy (dla widoku admin)
 - [ ] Dodanie dla widoku użytkownika tabeli wyprawy (bez możliwiści edytowania ale z możliwością zapisu na wyprawę)
 - [ ] Dodanie użytkownikowi możliwości edytowania **swoich** danych (oczywiście nie wszystkich)
-- [ ] Zabezpieczenie wszytskich tabeli przed dodawaniem złego wypu danych
-- [ ] Połączenie (przy dodawaniu i edytowaniu) tabeli czlonkowie_klubu i adresy
+- [ ] Zabezpieczenie wszytskich tabeli przed dodawaniem złego twypu i złej długości danych
 - [ ] Dodanie jakiegoś stylu CSS (może być jakiś z generatora)
+- [ ] Zrobienie popup po kliknięciu usuń z zatwierdzeniem (przy usuwaniu adresu ostrzeżenie że to może skutkować usunięciem użytkownika i prośba o wpisanie hasła)
+- [ ] Zadbanie o wygląd i klarowność strony (stworzenie czegoś na stronie home)
+- [ ] Usująć wszystkie literówki
+
+
+### Todo (nie na złoty strzał (chyba że masz nadmiar czasu))
 - [ ] Dodanie że przy usunięciu jednej tabeli usuwają się też tabele powiązane (dodaie dla innych tabeli)
 - [ ] **Nie na złoty strzał (za mało czasu)** Dodanie dla widoku admina tabeli schroniska
-- [ ] Zrobienie popup po kliknięciu usuń z zatwierdzeniem (przy usuwaniu użytkownika i/lub pracownika to może być popup który pyta o hasło admina)
 - [ ] **Opcjonalne:** Dodanie zabezpieczeń przed SQL injection
 - [ ] **Opcjonalne:** Dodanie zabezpieczeń przed XSS
 - [ ] **Opcjonalne:** Dodanie zabezpieczeń przed HTML Injection 
-- [ ] Zadbanie o wygląd i klarowność strony
 - [ ] Zrobienie ładniejszych stron błędów
-- [ ] Usująć wszystkie literówki
