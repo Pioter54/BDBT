@@ -347,7 +347,7 @@ ALTER TABLE Adresy ADD CONSTRAINT PK_Adresy PRIMARY KEY (Nr_adresu)
 
 CREATE TABLE Dane_logowania(
                                Email Varchar2(50 ) NOT NULL,
-                               Password Varchar2(40 ) NOT NULL,
+                               Password Varchar2(400 ) NOT NULL,
                                Nr_czlonka_klubu Integer NOT NULL
 )
 /

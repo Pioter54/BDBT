@@ -20,8 +20,8 @@ Zrobione i do zrobienia
 - [x] Dodanie że przy usunięciu jednej tabeli usuwają się też tabele powiązane (przy usunięciu adresu usuwa się odpowiadający mu użytkownik)
 - [x] Dodanie dla widoku admina tabeli wyprawy
 - [ ] Połączenie (przy dodawaniu i edytowaniu) tabeli czlonkowie_klubu i adresy (dla widoku admin)
-- [ ] Dodanie dla widoku użytkownika tabeli wyprawy (bez możliwiści edytowania ale z możliwością zapisu na wyprawę)
 - [ ] Dodanie użytkownikowi możliwości edytowania **swoich** danych (oczywiście nie wszystkich)
+- [ ] Dodanie dla widoku użytkownika tabeli wyprawy (bez możliwiści edytowania ale z możliwością zapisu na wyprawę)
 - [ ] Zabezpieczenie wszytskich tabeli przed dodawaniem złego twypu i złej długości danych
 - [ ] Dodanie jakiegoś stylu CSS (może być jakiś z generatora)
 - [ ] Zrobienie popup po kliknięciu usuń z zatwierdzeniem (przy usuwaniu adresu ostrzeżenie że to może skutkować usunięciem użytkownika i prośba o wpisanie hasła)
