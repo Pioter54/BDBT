@@ -12,7 +12,12 @@
     <input type="text" th:field="*{czlonek.imie}" placeholder="Imię" required/><br/>
     <input type="text" th:field="*{czlonek.nazwisko}" placeholder="Nazwisko" required/><br/>
     <input type="date" th:field="*{czlonek.data_urodzenia}" placeholder="Data urodzenia" required/><br/>
-    <input type="text" th:field="*{czlonek.plec}" placeholder="Płeć" required/><br/>
+    <select id="plec" th:field="*{czlonek.plec}" required>
+      <option value="" disabled selected>Wybierz płeć</option>
+      <option value="M">Mężczyzna</option>
+      <option value="K">Kobieta</option>
+    </select>
+    <br/>
     <input type="text" th:field="*{czlonek.telefon}" placeholder="Telefon" required/><br/>
   </fieldset>
   <fieldset>
