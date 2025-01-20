@@ -40,7 +40,7 @@ class CzlonekKlubuDAOTest {
 
     @Test
     void get() {
-        int nrCzlonkaKlubu = 3; // Test przejdzie tylko, jeśli członek o takim ID istnieje w bazie danych
+        int nrCzlonkaKlubu = 1; // Test przejdzie tylko, jeśli członek o takim ID istnieje w bazie danych
         CzlonekKlubu czlonek = dao.get(nrCzlonkaKlubu);
         assertNotNull(czlonek);
     }
@@ -63,7 +63,7 @@ class CzlonekKlubuDAOTest {
 
     @Test
     void delete() {
-        int nrCzlonkaKlubu = 2;
+        int nrCzlonkaKlubu = 22;
         dao.delete(nrCzlonkaKlubu);
     }
 }

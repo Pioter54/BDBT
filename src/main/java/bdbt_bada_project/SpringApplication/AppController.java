@@ -32,6 +32,7 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/wyprawy_admin").setViewName("admin/wyprawy_admin");
         registry.addViewController("/edit_form_wyprawy").setViewName("admin/edit_form_wyprawy");
         registry.addViewController("/new_form_wyprawy").setViewName("admin/new_form_wyprawy");
+        registry.addViewController("/new_user_with_address").setViewName("admin/new_user_with_address");
     }
 
     @Controller
@@ -217,6 +218,32 @@ public class AppController implements WebMvcConfigurer {
             wyprawaDAO.delete(nr_wycieczki);
             return "redirect:/wyprawy_admin";
         }
+
+        @RequestMapping("/new_user_with_address")
+        public String showNewUserWithAddressForm(Model model) {
+            UserRegistrationDTO userRegistration = new UserRegistrationDTO();
+            userRegistration.setCzlonek(new CzlonekKlubu());
+            userRegistration.setAdres(new Adres());
+            model.addAttribute("userRegistration", userRegistration);
+            return "admin/new_user_with_address";
+        }
+
+        @RequestMapping(value = "/save_user_with_address", method = RequestMethod.POST)
+        public String saveUserWithAddress(@ModelAttribute("userRegistration") UserRegistrationDTO userRegistration) {
+            // Zapisz adres i uzyskaj ID
+            Adres adres = userRegistration.getAdres();
+            int nrAdresu = adresDAO.saveAndReturnId(adres);
+
+            // Powiąż ID adresu z użytkownikiem
+            CzlonekKlubu czlonek = userRegistration.getCzlonek();
+            czlonek.setNr_adresu(nrAdresu);
+
+            // Zapisz użytkownika
+            czlonekKlubuDAO.save(czlonek);
+
+            return "redirect:/czlonkowie_klubu_admin";
+        }
+
     }
 
     @RequestMapping(value = {"/main_admin"})

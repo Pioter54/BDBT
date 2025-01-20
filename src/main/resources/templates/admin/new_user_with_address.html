@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nowy Członek Klubu</title>
+</head>
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Dodaj nowego członka klubu</h1>
+
+    <br/>
+    <!-- End line/new line -->
+    <form action="@{/save_user_with_address}" th:action="@{/save_user_with_address}" th:object="${userRegistration}" method="post">
+        <table border="1" cellpadding="10">
+            <tr>
+                <td>Imie</td>
+                <td><input type="text" th:field="*{czlonek.imie}" /></td>
+            </tr>
+            <tr>
+                <td>Nazwisko</td>
+                <td><input type="text" th:field="*{czlonek.nazwisko}" /></td>
+            </tr>
+            <tr>
+                <td>Pesel</td>
+                <td><input type="text" th:field="*{czlonek.pesel}" /></td>
+            </tr>
+            <tr>
+                <td>Data Urodzenia</td>
+                <td><input type="date" th:field="*{czlonek.data_urodzenia}" /></td>
+            </tr>
+            <tr>
+                <td>Plec</td>
+                <td>
+                    <select th:field="*{czlonek.plec}">
+                        <option value="M">Mężczyzna</option>
+                        <option value="K">Kobieta</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Telefon</td>
+                <td><input type="text" th:field="*{czlonek.telefon}" /></td>
+            </tr>
+            <tr>
+                <td>Kraj</td>
+                <td><input type="text" th:field="*{adres.kraj}" /></td>
+            </tr>
+            <tr>
+                <td>Miasto</td>
+                <td><input type="text" th:field="*{adres.miasto}" /></td>
+            </tr>
+            <tr>
+                <td>Ulica</td>
+                <td><input type="text" th:field="*{adres.ulica}" /></td>
+            </tr>
+            <tr>
+                <td>Nr Budynku</td>
+                <td><input type="text" th:field="*{adres.nr_budynku}" /></td>
+            </tr>
+            <tr>
+                <td>Nr Lokalu</td>
+                <td><input type="text" th:field="*{adres.nr_lokalu}" /></td>
+            </tr>
+            <tr>
+                <td>Kod Pocztowy</td>
+                <td><input type="text" th:field="*{adres.kod_pocztowy}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Zapisz</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
