@@ -21,16 +21,16 @@ Zrobione i do zrobienia
 - [x] Dodanie dla widoku admina tabeli wyprawy
 - [x] Połączenie (przy dodawaniu i edytowaniu) tabeli czlonkowie_klubu i adresy (dla widoku admin)
 - [x] Dodanie użytkownikowi możliwości edytowania **swoich** danych (oczywiście nie wszystkich)
-- [ ] Dodanie dla widoku użytkownika tabeli wyprawy (bez możliwiści edytowania ale z możliwością zapisu na wyprawę)
+- [x] Dodanie dla widoku użytkownika tabeli wyprawy (bez możliwiści edytowania ale z możliwością zapisu na wyprawę)
+- [ ] Dodanie możliwości sprawdzenia na jakie wycieczki jest zapisany użytkownik
 - [ ] Zabezpieczenie wszytskich tabeli przed dodawaniem złego twypu i złej długości danych
 - [ ] Dodanie jakiegoś stylu CSS (może być jakiś z generatora)
 - [ ] Zrobienie popup po kliknięciu usuń z zatwierdzeniem (przy usuwaniu adresu ostrzeżenie że to może skutkować usunięciem użytkownika i prośba o wpisanie hasła)
 - [ ] Zadbanie o wygląd i klarowność strony (stworzenie czegoś na stronie home)
 - [ ] Usująć wszystkie literówki
-- [ ] Dodanie że przy usunięciu jednej tabeli usuwają się też tabele powiązane (dodaie dla innych tabeli)
+- [ ] Dodanie że przy usunięciu jednej tabeli usuwają się też tabele powiązane (przy usunięciu członka mają sie też usunąć jego dane logowania i adres)
 - [ ] **Opcjonalne:** Dodanie zabezpieczeń przed SQL injection
 - [ ] **Opcjonalne:** Dodanie zabezpieczeń przed XSS
 - [ ] **Opcjonalne:** Dodanie zabezpieczeń przed HTML Injection 
-- [ ] Dodanie dla widoku admina tabeli schroniska
 - [ ] Zrobienie ładniejszych stron błędów
 - [ ] Dodać automatyczne wylogowywanie po czasie

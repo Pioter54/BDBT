@@ -51,6 +51,9 @@ public class AppController implements WebMvcConfigurer {
         @Autowired
         private WyprawaDAO wyprawaDAO;
 
+        @Autowired
+        private UczestnictwoDAO uczestnictwoDAO;
+
         @RequestMapping("/adresy_admin")
         public String viewAdresy(Model model) {
             List<Adres> listAdres = adresDAO.list();
@@ -336,6 +339,31 @@ public class AppController implements WebMvcConfigurer {
 
             return "redirect:/main_user"; // Jeśli użytkownik nie został znaleziony
         }
+
+        @RequestMapping("/wyprawy_user")
+        public String viewWyprawyDlaUzytkownika(Model model) {
+            List<Wyprawa> listWyprawy = wyprawaDAO.list();
+            model.addAttribute("listWyprawy", listWyprawy);
+            return "user/wyprawy_user";
+        }
+
+        @RequestMapping("/zapisz_na_wycieczke/{nrWycieczki}")
+        public String zapiszNaWycieczke(@PathVariable int nrWycieczki, Principal principal) {
+            String email = principal.getName(); // Pobierz email zalogowanego użytkownika
+            LoginData loginData = loginDAO.findByEmail(email);
+
+            if (loginData != null) {
+                int nrCzlonkaKlubu = loginData.getNrCzlonkaKlubu();
+
+                // Sprawdź, czy użytkownik już jest zapisany
+                if (!uczestnictwoDAO.czyZapisany(nrCzlonkaKlubu, nrWycieczki)) {
+                    uczestnictwoDAO.zapiszNaWycieczke(nrCzlonkaKlubu, nrWycieczki);
+                }
+            }
+
+            return "redirect:/main_user";
+        }
+
 
     }
 
