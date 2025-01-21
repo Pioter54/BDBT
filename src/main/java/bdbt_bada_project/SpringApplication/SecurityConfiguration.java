@@ -84,6 +84,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/delete_wyprawa/{nr_wycieczki}").access("hasRole('ADMIN')")
 
                 .antMatchers("/main_user").access("hasRole('USER')")
+                .antMatchers("/edit_my_data").hasRole("USER")
+                .antMatchers("/update_my_data").hasRole("USER")
+
 
                 .and()
                 .formLogin()

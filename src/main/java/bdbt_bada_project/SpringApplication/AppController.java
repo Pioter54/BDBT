@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 import java.util.List;
 
 @Configuration
@@ -283,6 +284,44 @@ public class AppController implements WebMvcConfigurer {
             return "redirect:/czlonkowie_klubu_admin";
         }
 
+        @RequestMapping("/edit_my_data")
+        public String showEditMyDataForm(Model model, Principal principal) {
+            String email = principal.getName(); // Pobierz email zalogowanego użytkownika
+            LoginData loginData = loginDAO.findByEmail(email);
+
+            if (loginData != null) {
+                CzlonekKlubu czlonek = czlonekKlubuDAO.get(loginData.getNrCzlonkaKlubu());
+                Adres adres = adresDAO.get(czlonek.getNr_adresu());
+
+                UserRegistrationDTO userRegistration = new UserRegistrationDTO();
+                userRegistration.setCzlonek(czlonek);
+                userRegistration.setAdres(adres);
+
+                model.addAttribute("userRegistration", userRegistration);
+                return "user/edit_my_data";
+            }
+
+            return "redirect:/main_user"; // W przypadku braku danych użytkownika
+        }
+
+        @RequestMapping(value = "/update_my_data", method = RequestMethod.POST)
+        public String updateMyData(@ModelAttribute("userRegistration") UserRegistrationDTO userRegistration, Principal principal) {
+            String email = principal.getName();
+            LoginData loginData = loginDAO.findByEmail(email);
+
+            if (loginData != null && loginData.getNrCzlonkaKlubu() == userRegistration.getCzlonek().getNr_czlonka_klubu()) {
+                Adres adres = userRegistration.getAdres();
+                adresDAO.update(adres);
+
+                CzlonekKlubu czlonek = userRegistration.getCzlonek();
+                czlonek.setNr_adresu(adres.getNr_adresu());
+                czlonekKlubuDAO.update(czlonek);
+
+                return "redirect:/main_user";
+            }
+
+            return "redirect:/main_user"; // Jeśli użytkownik nie jest uprawniony
+        }
 
     }
 

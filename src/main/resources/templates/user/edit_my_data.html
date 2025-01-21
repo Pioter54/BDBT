@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edycja Twoich Danych</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Edycja Twoich Danych</h1>
+    <form action="#" th:action="@{/update_my_data}" th:object="${userRegistration}" method="post" class="mt-4">
+
+        <!-- Sekcja Danych Użytkownika -->
+        <h2>Dane Osobowe</h2>
+        <div class="form-group">
+            <label for="imie">Imię:</label>
+            <input type="text" id="imie" class="form-control" th:field="*{czlonek.imie}" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="nazwisko">Nazwisko:</label>
+            <input type="text" id="nazwisko" class="form-control" th:field="*{czlonek.nazwisko}" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="pesel">PESEL:</label>
+            <input type="text" id="pesel" class="form-control" th:field="*{czlonek.pesel}" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="data_urodzenia">Data Urodzenia:</label>
+            <input type="date" id="data_urodzenia" class="form-control" th:field="*{czlonek.data_urodzenia}" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="plec">Płeć:</label>
+            <select id="plec" class="form-control" th:field="*{czlonek.plec}" required>
+                <option value="" disabled selected>Wybierz płeć</option>
+                <option value="M">Mężczyzna</option>
+                <option value="K">Kobieta</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="telefon">Telefon:</label>
+            <input type="text" id="telefon" class="form-control" th:field="*{czlonek.telefon}" required/>
+        </div>
+
+        <!-- Sekcja Adresu -->
+        <h2>Adres</h2>
+        <div class="form-group">
+            <label for="kraj">Kraj:</label>
+            <input type="text" id="kraj" class="form-control" th:field="*{adres.kraj}" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="miasto">Miasto:</label>
+            <input type="text" id="miasto" class="form-control" th:field="*{adres.miasto}" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="ulica">Ulica:</label>
+            <input type="text" id="ulica" class="form-control" th:field="*{adres.ulica}" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="nr_budynku">Nr Budynku:</label>
+            <input type="text" id="nr_budynku" class="form-control" th:field="*{adres.nr_budynku}" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="nr_lokalu">Nr Lokalu:</label>
+            <input type="text" id="nr_lokalu" class="form-control" th:field="*{adres.nr_lokalu}"/>
+        </div>
+
+        <div class="form-group">
+            <label for="kod_pocztowy">Kod Pocztowy:</label>
+            <input type="text" id="kod_pocztowy" class="form-control" th:field="*{adres.kod_pocztowy}" required/>
+        </div>
+
+        <!-- Przyciski -->
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary">Zapisz Zmiany</button>
+            <a href="/main_user" class="btn btn-secondary">Anuluj</a>
+        </div>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
