@@ -30,13 +30,4 @@ public class UserRegistrationDTO {
         this.loginData = loginData;
     }
 
-    @RequestMapping("/new_user_with_address")
-    public String showNewUserWithAddressForm(Model model) {
-        UserRegistrationDTO userRegistration = new UserRegistrationDTO();
-        userRegistration.setCzlonek(new CzlonekKlubu());
-        userRegistration.setAdres(new Adres());
-        model.addAttribute("userRegistration", userRegistration);
-        return "new_form_user_address";
-    }
-
 }
