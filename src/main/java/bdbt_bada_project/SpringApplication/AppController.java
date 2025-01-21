@@ -364,6 +364,19 @@ public class AppController implements WebMvcConfigurer {
             return "redirect:/main_user";
         }
 
+        @RequestMapping("/moje_wycieczki")
+        public String mojeWycieczki(Model model, Principal principal) {
+            String email = principal.getName(); // Pobierz email zalogowanego użytkownika
+            LoginData loginData = loginDAO.findByEmail(email);
+
+            if (loginData != null) {
+                int nrCzlonkaKlubu = loginData.getNrCzlonkaKlubu();
+                List<Wyprawa> mojeWycieczki = uczestnictwoDAO.getWycieczkiDlaUzytkownika(nrCzlonkaKlubu);
+                model.addAttribute("mojeWycieczki", mojeWycieczki);
+            }
+
+            return "user/moje_wycieczki";
+        }
 
     }
 

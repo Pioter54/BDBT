@@ -22,8 +22,10 @@ Zrobione i do zrobienia
 - [x] Połączenie (przy dodawaniu i edytowaniu) tabeli czlonkowie_klubu i adresy (dla widoku admin)
 - [x] Dodanie użytkownikowi możliwości edytowania **swoich** danych (oczywiście nie wszystkich)
 - [x] Dodanie dla widoku użytkownika tabeli wyprawy (bez możliwiści edytowania ale z możliwością zapisu na wyprawę)
-- [ ] Dodanie możliwości sprawdzenia na jakie wycieczki jest zapisany użytkownik
+- [x] Dodanie możliwości sprawdzenia na jakie wycieczki jest zapisany użytkownik
+- [ ] Dodanie możliwości wypisania się z wycieczki (i wyszarzenie guzika zapisz na już zapisanej)
 - [ ] Zabezpieczenie wszytskich tabeli przed dodawaniem złego twypu i złej długości danych
+- [ ] Ujednolicenie wyglądu stron
 - [ ] Dodanie jakiegoś stylu CSS (może być jakiś z generatora)
 - [ ] Zrobienie popup po kliknięciu usuń z zatwierdzeniem (przy usuwaniu adresu ostrzeżenie że to może skutkować usunięciem użytkownika i prośba o wpisanie hasła)
 - [ ] Zadbanie o wygląd i klarowność strony (stworzenie czegoś na stronie home)

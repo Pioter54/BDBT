@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Moje Wycieczki</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Moje Wycieczki</h1>
+    <table class="table table-bordered mt-4">
+        <thead>
+        <tr>
+            <th>Nr Wycieczki</th>
+            <th>Data Od</th>
+            <th>Data Do</th>
+            <th>Opis</th>
+            <th>Cena</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="wyprawa : ${mojeWycieczki}">
+            <td th:text="${wyprawa.nr_wycieczki}">Nr Wycieczki</td>
+            <td th:text="${wyprawa.data_od}">Data Od</td>
+            <td th:text="${wyprawa.data_do}">Data Do</td>
+            <td th:text="${wyprawa.opis}">Opis</td>
+            <td th:text="${wyprawa.cena}">Cena</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="text-center mt-3">
+        <a href="/wyprawy_user" class="btn btn-primary">Wróć do listy wycieczek</a>
+    </div>
+</div>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
