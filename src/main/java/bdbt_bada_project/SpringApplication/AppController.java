@@ -33,6 +33,7 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/edit_form_wyprawy").setViewName("admin/edit_form_wyprawy");
         registry.addViewController("/new_form_wyprawy").setViewName("admin/new_form_wyprawy");
         registry.addViewController("/new_user_with_address").setViewName("admin/new_user_with_address");
+        registry.addViewController("/edit_user_with_address").setViewName("admin/edit_form_czlonkowie_klubu");
     }
 
     @Controller
@@ -109,13 +110,13 @@ public class AppController implements WebMvcConfigurer {
             return "redirect:/czlonkowie_klubu_admin";
         }
 
-        @RequestMapping("/edit_czlonek/{nr_czlonka_klubu}")
-        public ModelAndView showEditCzlonekForm(@PathVariable(name = "nr_czlonka_klubu") int nr_czlonka_klubu) {
-            ModelAndView mav = new ModelAndView("admin/edit_form_czlonkowie_klubu");
-            CzlonekKlubu czlonek = czlonekKlubuDAO.get(nr_czlonka_klubu);
-            mav.addObject("czlonek", czlonek);
-            return mav;
-        }
+//        @RequestMapping("/edit_czlonek/{nr_czlonka_klubu}")
+//        public ModelAndView showEditCzlonekForm(@PathVariable(name = "nr_czlonka_klubu") int nr_czlonka_klubu) {
+//            ModelAndView mav = new ModelAndView("admin/edit_form_czlonkowie_klubu");
+//            CzlonekKlubu czlonek = czlonekKlubuDAO.get(nr_czlonka_klubu);
+//            mav.addObject("czlonek", czlonek);
+//            return mav;
+//        }
 
         @RequestMapping(value = "/update_czlonek", method = RequestMethod.POST)
         public String updateCzlonek(@ModelAttribute("czlonek") CzlonekKlubu czlonek) {
@@ -243,6 +244,45 @@ public class AppController implements WebMvcConfigurer {
 
             return "redirect:/czlonkowie_klubu_admin";
         }
+
+        @RequestMapping("/edit_czlonek/{nrCzlonkaKlubu}")
+        public String showEditUserWithAddressForm(@PathVariable int nrCzlonkaKlubu, Model model) {
+            CzlonekKlubu czlonek = czlonekKlubuDAO.get(nrCzlonkaKlubu);
+            Adres adres = adresDAO.get(czlonek.getNr_adresu());
+
+            UserRegistrationDTO userRegistration = new UserRegistrationDTO();
+            userRegistration.setCzlonek(czlonek);
+            userRegistration.setAdres(adres);
+
+            model.addAttribute("userRegistration", userRegistration);
+            return "admin/edit_form_czlonkowie_klubu"; // Zmieniona nazwa widoku
+        }
+
+
+        @RequestMapping(value = "/update_user_with_address", method = RequestMethod.POST)
+        public String updateUserWithAddress(@ModelAttribute("userRegistration") UserRegistrationDTO userRegistration) {
+            Adres adres = userRegistration.getAdres();
+            int nrAdresu;
+
+            if (adresDAO.get(adres.getNr_adresu()) != null) {
+                adresDAO.update(adres);
+                nrAdresu = adres.getNr_adresu(); // Pobieramy istniejący nr_adresu
+            } else {
+                nrAdresu = adresDAO.saveAndReturnId(adres); // Zapisujemy nowy adres
+            }
+
+            // PRZYPISZ POPRAWNE nr_adresu DO CZŁONKA
+            userRegistration.getCzlonek().setNr_adresu(nrAdresu);
+
+            // Aktualizujemy członka klubu
+            czlonekKlubuDAO.update(userRegistration.getCzlonek());
+
+
+
+
+            return "redirect:/czlonkowie_klubu_admin";
+        }
+
 
     }
 

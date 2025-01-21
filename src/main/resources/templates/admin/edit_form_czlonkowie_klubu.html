@@ -1,60 +1,88 @@
 <!DOCTYPE html>
-<html>
-
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edytuj Członka Klubu i Adres</title>
 </head>
 <body>
 <div align="center">
-    <h1>Edytuj Członka Klubu</h1>
+    <h1>Edytuj Członka Klubu i Adres</h1>
     <br/>
-    <form action="#" th:action="@{/update_czlonek}" th:object="${czlonek}" method="post">
+    <form action="#" th:action="@{/update_user_with_address}" th:object="${userRegistration}" method="post">
+        <h2>Dane Członka Klubu</h2>
         <table border="1" cellpadding="10">
             <tr>
                 <td>Nr_czlonka_klubu</td>
-                <td><input type="text" th:field="*{nr_czlonka_klubu}" readonly="readonly"></td>
+                <td><input type="text" th:field="*{czlonek.nr_czlonka_klubu}" readonly="readonly"></td>
             </tr>
             <tr>
                 <td>Imie</td>
-                <td><input type="text" th:field="*{imie}"></td>
+                <td><input type="text" th:field="*{czlonek.imie}"></td>
             </tr>
             <tr>
                 <td>Nazwisko</td>
-                <td><input type="text" th:field="*{nazwisko}"></td>
+                <td><input type="text" th:field="*{czlonek.nazwisko}"></td>
             </tr>
             <tr>
                 <td>Pesel:</td>
-                <td><input type="text" th:field="*{pesel}"/></td>
+                <td><input type="text" th:field="*{czlonek.pesel}"/></td>
             </tr>
             <tr>
                 <td>Data_urodzenia:</td>
-                <td><input type="date" th:field="*{data_urodzenia}"/></td>
+                <td><input type="date" th:field="*{czlonek.data_urodzenia}"/></td>
             </tr>
             <tr>
                 <td>Plec:</td>
-                <td><input type="text" th:field="*{plec}"/></td>
+                <td><input type="text" th:field="*{czlonek.plec}"/></td>
             </tr>
             <tr>
                 <td>Telefon:</td>
-                <td><input type="text" th:field="*{telefon}"/></td>
+                <td><input type="text" th:field="*{czlonek.telefon}"/></td>
             </tr>
             <tr>
                 <td>Data_dolaczenia:</td>
-                <td><input type="date" th:field="*{data_dolaczenia}"/></td>
+                <td><input type="date" th:field="*{czlonek.data_dolaczenia}"/></td>
             </tr>
             <tr>
                 <td>Data_odejscia:</td>
-                <td><input type="date" th:field="*{data_odejscia}"/></td>
-            </tr>
-            <tr>
-                <td>Nr_adresu:</td>
-                <td><input type="text" th:field="*{nr_adresu}" readonly="readonly"/></td>
-            </tr>
-            <tr>
-                <td colspan="2"><button type="submit">Save</button> </td>
+                <td><input type="date" th:field="*{czlonek.data_odejscia}"/></td>
             </tr>
         </table>
+
+        <h2>Dane Adresowe</h2>
+        <table border="1" cellpadding="10">
+            <tr>
+                <td>Nr_adresu</td>
+                <td><input type="text" th:field="*{adres.nr_adresu}" readonly="readonly"/></td>
+            </tr>
+            <tr>
+                <td>Kraj</td>
+                <td><input type="text" th:field="*{adres.kraj}"/></td>
+            </tr>
+            <tr>
+                <td>Miasto</td>
+                <td><input type="text" th:field="*{adres.miasto}"/></td>
+            </tr>
+            <tr>
+                <td>Ulica</td>
+                <td><input type="text" th:field="*{adres.ulica}"/></td>
+            </tr>
+            <tr>
+                <td>Nr Budynku</td>
+                <td><input type="text" th:field="*{adres.nr_budynku}"/></td>
+            </tr>
+            <tr>
+                <td>Nr Lokalu</td>
+                <td><input type="text" th:field="*{adres.nr_lokalu}"/></td>
+            </tr>
+            <tr>
+                <td>Kod Pocztowy</td>
+                <td><input type="text" th:field="*{adres.kod_pocztowy}"/></td>
+            </tr>
+        </table>
+
+        <button type="submit">Zapisz</button>
     </form>
 </div>
 </body>
