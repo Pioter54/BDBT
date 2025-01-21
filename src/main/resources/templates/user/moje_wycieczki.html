@@ -16,6 +16,7 @@
             <th>Data Do</th>
             <th>Opis</th>
             <th>Cena</th>
+            <th>Akcja</th>
         </tr>
         </thead>
         <tbody>
@@ -25,9 +26,13 @@
             <td th:text="${wyprawa.data_do}">Data Do</td>
             <td th:text="${wyprawa.opis}">Opis</td>
             <td th:text="${wyprawa.cena}">Cena</td>
+            <td>
+                <a th:href="@{'/wypisz_z_wycieczki/' + ${wyprawa.nr_wycieczki}}" class="btn btn-danger">Wypisz się</a>
+            </td>
         </tr>
         </tbody>
     </table>
+
     <div class="text-center mt-3">
         <a href="/wyprawy_user" class="btn btn-primary">Wróć do listy wycieczek</a>
     </div>

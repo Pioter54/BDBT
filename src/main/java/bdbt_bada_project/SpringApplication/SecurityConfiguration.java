@@ -50,6 +50,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/resources/static/**").permitAll()
                 .antMatchers("/main").authenticated()
 
+
                 .antMatchers("/main_admin").access("hasRole('ADMIN')")
 
                 .antMatchers("/adresy_admin").access("hasRole('ADMIN')")
@@ -72,8 +73,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/new_user_with_address").access("hasRole('ADMIN')")
                 .antMatchers("/save_user_with_address").access("hasRole('ADMIN')")
 
-
-
                 .antMatchers("/wyprawy_admin").access("hasRole('ADMIN')")
                 .antMatchers("/edit_form_wyprawa").access("hasRole('ADMIN')")
                 .antMatchers("/new_form_wyprawa").access("hasRole('ADMIN')")
@@ -83,12 +82,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/edit_wyprawa/{nr_wycieczki}").access("hasRole('ADMIN')")
                 .antMatchers("/delete_wyprawa/{nr_wycieczki}").access("hasRole('ADMIN')")
 
+
                 .antMatchers("/main_user").access("hasRole('USER')")
                 .antMatchers("/edit_my_data").hasRole("USER")
                 .antMatchers("/update_my_data").hasRole("USER")
                 .antMatchers("/edit_my_data", "/update_my_data").hasRole("USER")
                 .antMatchers("/wyprawy_user", "/zapisz_na_wycieczke/**").hasRole("USER")
                 .antMatchers("/moje_wycieczki").hasRole("USER")
+                .antMatchers("/wypisz_z_wycieczki/**").hasRole("USER")
+
 
 
 

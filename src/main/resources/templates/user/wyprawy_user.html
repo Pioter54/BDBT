@@ -27,7 +27,10 @@
             <td th:text="${wyprawa.opis}">Opis</td>
             <td th:text="${wyprawa.cena}">Cena</td>
             <td>
-                <a th:href="@{'/zapisz_na_wycieczke/' + ${wyprawa.nr_wycieczki}}" class="btn btn-success">Zapisz się</a>
+                <a th:href="@{'/zapisz_na_wycieczke/' + ${wyprawa.nr_wycieczki}}"
+                   th:classappend="${zapisaneWycieczki[wyprawa.nr_wycieczki]} ? 'btn btn-secondary disabled' : 'btn btn-success'"
+                   th:attr="disabled=${zapisaneWycieczki[wyprawa.nr_wycieczki]}"
+                   th:text="${zapisaneWycieczki[wyprawa.nr_wycieczki]} ? 'Zapisano' : 'Zapisz się'"></a>
             </td>
         </tr>
         </tbody>

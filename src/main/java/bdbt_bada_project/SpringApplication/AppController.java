@@ -11,7 +11,9 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Configuration
 public class AppController implements WebMvcConfigurer {
@@ -341,11 +343,29 @@ public class AppController implements WebMvcConfigurer {
         }
 
         @RequestMapping("/wyprawy_user")
-        public String viewWyprawyDlaUzytkownika(Model model) {
-            List<Wyprawa> listWyprawy = wyprawaDAO.list();
-            model.addAttribute("listWyprawy", listWyprawy);
+        public String viewWyprawyDlaUzytkownika(Model model, Principal principal) {
+            String email = principal.getName(); // Pobierz email zalogowanego użytkownika
+            LoginData loginData = loginDAO.findByEmail(email);
+
+            if (loginData != null) {
+                int nrCzlonkaKlubu = loginData.getNrCzlonkaKlubu();
+
+                // Pobierz listę wszystkich wycieczek
+                List<Wyprawa> listWyprawy = wyprawaDAO.list();
+
+                // Dodaj informacje o zapisach użytkownika
+                Map<Integer, Boolean> zapisaneWycieczki = new HashMap<>();
+                for (Wyprawa wyprawa : listWyprawy) {
+                    zapisaneWycieczki.put(wyprawa.getNr_wycieczki(), uczestnictwoDAO.czyZapisany(nrCzlonkaKlubu, wyprawa.getNr_wycieczki()));
+                }
+
+                model.addAttribute("listWyprawy", listWyprawy);
+                model.addAttribute("zapisaneWycieczki", zapisaneWycieczki);
+            }
+
             return "user/wyprawy_user";
         }
+
 
         @RequestMapping("/zapisz_na_wycieczke/{nrWycieczki}")
         public String zapiszNaWycieczke(@PathVariable int nrWycieczki, Principal principal) {
@@ -361,7 +381,7 @@ public class AppController implements WebMvcConfigurer {
                 }
             }
 
-            return "redirect:/main_user";
+            return "redirect:/wyprawy_user";
         }
 
         @RequestMapping("/moje_wycieczki")
@@ -378,6 +398,18 @@ public class AppController implements WebMvcConfigurer {
             return "user/moje_wycieczki";
         }
 
+        @RequestMapping("/wypisz_z_wycieczki/{nrWycieczki}")
+        public String wypiszZWycieczki(@PathVariable int nrWycieczki, Principal principal) {
+            String email = principal.getName(); // Pobierz email zalogowanego użytkownika
+            LoginData loginData = loginDAO.findByEmail(email);
+
+            if (loginData != null) {
+                int nrCzlonkaKlubu = loginData.getNrCzlonkaKlubu();
+                uczestnictwoDAO.wypiszZWycieczki(nrCzlonkaKlubu, nrWycieczki);
+            }
+
+            return "redirect:/moje_wycieczki";
+        }
     }
 
     @RequestMapping(value = {"/main_admin"})

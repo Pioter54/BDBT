@@ -23,7 +23,7 @@ Zrobione i do zrobienia
 - [x] Dodanie użytkownikowi możliwości edytowania **swoich** danych (oczywiście nie wszystkich)
 - [x] Dodanie dla widoku użytkownika tabeli wyprawy (bez możliwiści edytowania ale z możliwością zapisu na wyprawę)
 - [x] Dodanie możliwości sprawdzenia na jakie wycieczki jest zapisany użytkownik
-- [ ] Dodanie możliwości wypisania się z wycieczki (i wyszarzenie guzika zapisz na już zapisanej)
+- [x] Dodanie możliwości wypisania się z wycieczki (i wyszarzenie guzika zapisz na już zapisanej)
 - [ ] Zabezpieczenie wszytskich tabeli przed dodawaniem złego twypu i złej długości danych
 - [ ] Ujednolicenie wyglądu stron
 - [ ] Dodanie jakiegoś stylu CSS (może być jakiś z generatora)

@@ -33,4 +33,9 @@ public class UczestnictwoDAO {
                 "WHERE u.nr_czlonka_klubu = ?";
         return jdbcTemplate.query(sql, new Object[]{nrCzlonkaKlubu}, BeanPropertyRowMapper.newInstance(Wyprawa.class));
     }
+
+    public void wypiszZWycieczki(int nrCzlonkaKlubu, int nrWycieczki) {
+        String sql = "DELETE FROM \"UCZESTNICTWA\" WHERE nr_czlonka_klubu = ? AND nr_wycieczki = ?";
+        jdbcTemplate.update(sql, nrCzlonkaKlubu, nrWycieczki);
+    }
 }
