@@ -287,40 +287,54 @@ public class AppController implements WebMvcConfigurer {
         @RequestMapping("/edit_my_data")
         public String showEditMyDataForm(Model model, Principal principal) {
             String email = principal.getName(); // Pobierz email zalogowanego użytkownika
-            LoginData loginData = loginDAO.findByEmail(email);
+            LoginData loginData = loginDAO.findByEmail(email); // Znajdź dane logowania
 
             if (loginData != null) {
-                CzlonekKlubu czlonek = czlonekKlubuDAO.get(loginData.getNrCzlonkaKlubu());
-                Adres adres = adresDAO.get(czlonek.getNr_adresu());
+                CzlonekKlubu czlonek = czlonekKlubuDAO.get(loginData.getNrCzlonkaKlubu()); // Pobierz dane członka
+                Adres adres = adresDAO.get(czlonek.getNr_adresu()); // Pobierz adres
 
                 UserRegistrationDTO userRegistration = new UserRegistrationDTO();
                 userRegistration.setCzlonek(czlonek);
                 userRegistration.setAdres(adres);
+                userRegistration.setLoginData(loginData);
 
                 model.addAttribute("userRegistration", userRegistration);
                 return "user/edit_my_data";
             }
 
-            return "redirect:/main_user"; // W przypadku braku danych użytkownika
+            return "redirect:/main_user"; // Jeśli użytkownik nie został znaleziony
         }
 
         @RequestMapping(value = "/update_my_data", method = RequestMethod.POST)
         public String updateMyData(@ModelAttribute("userRegistration") UserRegistrationDTO userRegistration, Principal principal) {
-            String email = principal.getName();
-            LoginData loginData = loginDAO.findByEmail(email);
+            String email = principal.getName(); // Pobierz email zalogowanego użytkownika
+            LoginData loginData = loginDAO.findByEmail(email); // Znajdź dane logowania
 
-            if (loginData != null && loginData.getNrCzlonkaKlubu() == userRegistration.getCzlonek().getNr_czlonka_klubu()) {
+            if (loginData != null) {
+                // Aktualizacja adresu
                 Adres adres = userRegistration.getAdres();
                 adresDAO.update(adres);
 
-                CzlonekKlubu czlonek = userRegistration.getCzlonek();
-                czlonek.setNr_adresu(adres.getNr_adresu());
-                czlonekKlubuDAO.update(czlonek);
+                // Aktualizacja danych członka klubu
+                userRegistration.getCzlonek().setNr_adresu(adres.getNr_adresu());
+                czlonekKlubuDAO.update(userRegistration.getCzlonek());
+
+                // Aktualizacja emaila i hasła
+                LoginData updatedLoginData = userRegistration.getLoginData();
+                loginData.setEmail(updatedLoginData.getEmail());
+
+                // Aktualizacja hasła, jeśli zostało podane
+                if (updatedLoginData.getPassword() != null && !updatedLoginData.getPassword().isEmpty()) {
+                    String encodedPassword = passwordEncoder.encode(updatedLoginData.getPassword());
+                    loginData.setPassword(encodedPassword);
+                }
+
+                loginDAO.update(loginData);
 
                 return "redirect:/main_user";
             }
 
-            return "redirect:/main_user"; // Jeśli użytkownik nie jest uprawniony
+            return "redirect:/main_user"; // Jeśli użytkownik nie został znaleziony
         }
 
     }

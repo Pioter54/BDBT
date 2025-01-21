@@ -20,4 +20,10 @@ public class LoginDAO {
         return jdbcTemplate.queryForObject(sql, new Object[]{email}, BeanPropertyRowMapper.newInstance(LoginData.class));
     }
 
+    public void update(LoginData loginData) {
+        String sql = "UPDATE DANE_LOGOWANIA SET email = ?, password = ? WHERE nr_czlonka_klubu = ?";
+        jdbcTemplate.update(sql, loginData.getEmail(), loginData.getPassword(), loginData.getNrCzlonkaKlubu());
+    }
+
+
 }

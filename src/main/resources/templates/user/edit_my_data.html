@@ -78,6 +78,18 @@
             <input type="text" id="kod_pocztowy" class="form-control" th:field="*{adres.kod_pocztowy}" required/>
         </div>
 
+        <h2>Dane Logowania</h2>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" class="form-control" th:field="*{loginData.email}" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Nowe Hasło:</label>
+            <input type="password" id="password" class="form-control" th:field="*{loginData.password}" placeholder="Wprowadź nowe hasło (opcjonalnie)"/>
+        </div>
+
+
         <!-- Przyciski -->
         <div class="form-group text-center">
             <button type="submit" class="btn btn-primary">Zapisz Zmiany</button>
