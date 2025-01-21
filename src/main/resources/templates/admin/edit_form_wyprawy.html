@@ -16,15 +16,15 @@
             </tr>
             <tr>
                 <td>Data_od:</td>
-                <td><input type="date" th:field="*{data_od}"/></td>
+                <td><input type="date" th:field="*{data_od}" required/></td>
             </tr>
             <tr>
                 <td>Data_do:</td>
-                <td><input type="date" th:field="*{data_do}"/></td>
+                <td><input type="date" th:field="*{data_do}" required/></td>
             </tr>
             <tr>
                 <td>Opis:</td>
-                <td><textarea th:field="*{opis}"></textarea></td>
+                <td><textarea th:field="*{opis}" required maxlength="400"></textarea></td>
             </tr>
             <tr>
                 <td>Cena:</td>

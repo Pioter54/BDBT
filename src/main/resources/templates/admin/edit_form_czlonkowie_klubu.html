@@ -18,35 +18,40 @@
             </tr>
             <tr>
                 <td>Imie</td>
-                <td><input type="text" th:field="*{czlonek.imie}"></td>
+                <td><input type="text" th:field="*{czlonek.imie}" maxlength="20" required pattern="[A-Za-z]+" title="Dozwolone tylko litery."/></td>
             </tr>
             <tr>
                 <td>Nazwisko</td>
-                <td><input type="text" th:field="*{czlonek.nazwisko}"></td>
+                <td><input type="text" th:field="*{czlonek.nazwisko}" maxlength="30" required pattern="[A-Za-z]+" title="Dozwolone tylko litery."/></td>
             </tr>
             <tr>
                 <td>Pesel:</td>
-                <td><input type="text" th:field="*{czlonek.pesel}"/></td>
+                <td><input type="text" th:field="*{czlonek.pesel}" pattern="\d{11}" title="PESEL musi mieć dokładnie 11 cyfr." maxlength="11"/></td>
             </tr>
             <tr>
                 <td>Data_urodzenia:</td>
-                <td><input type="date" th:field="*{czlonek.data_urodzenia}"/></td>
+                <td><input type="date" th:field="*{czlonek.data_urodzenia}" required/></td>
+            </tr>
+            <tr>
+                <td>Data_dołączenia:</td>
+                <td><input type="date" th:field="*{czlonek.data_dolaczenia}" required/></td>
+            </tr>
+            <tr>
+                <td>Data_odejścia:</td>
+                <td><input type="date" th:field="*{czlonek.data_odejscia}"/></td>
             </tr>
             <tr>
                 <td>Plec:</td>
-                <td><input type="text" th:field="*{czlonek.plec}"/></td>
+                <td>
+                    <select th:field="*{czlonek.plec}" required>
+                        <option value="M">Mężczyzna</option>
+                        <option value="K">Kobieta</option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>Telefon:</td>
-                <td><input type="text" th:field="*{czlonek.telefon}"/></td>
-            </tr>
-            <tr>
-                <td>Data_dolaczenia:</td>
-                <td><input type="date" th:field="*{czlonek.data_dolaczenia}"/></td>
-            </tr>
-            <tr>
-                <td>Data_odejscia:</td>
-                <td><input type="date" th:field="*{czlonek.data_odejscia}"/></td>
+                <td><input type="tel" th:field="*{czlonek.telefon}" pattern="\d{9}" title="Numer telefonu musi mieć 9 cyfr." required/></td>
             </tr>
         </table>
 
@@ -58,27 +63,27 @@
             </tr>
             <tr>
                 <td>Kraj</td>
-                <td><input type="text" th:field="*{adres.kraj}"/></td>
+                <td><input type="text" th:field="*{adres.kraj}" required maxlength="20"/></td>
             </tr>
             <tr>
                 <td>Miasto</td>
-                <td><input type="text" th:field="*{adres.miasto}"/></td>
+                <td><input type="text" th:field="*{adres.miasto}" required maxlength="30"/></td>
             </tr>
             <tr>
                 <td>Ulica</td>
-                <td><input type="text" th:field="*{adres.ulica}"/></td>
+                <td><input type="text" th:field="*{adres.ulica}" required maxlength="40"/></td>
             </tr>
             <tr>
                 <td>Nr Budynku</td>
-                <td><input type="text" th:field="*{adres.nr_budynku}"/></td>
+                <td><input type="text" th:field="*{adres.nr_budynku}" required maxlength="6"/></td>
             </tr>
             <tr>
                 <td>Nr Lokalu</td>
-                <td><input type="text" th:field="*{adres.nr_lokalu}"/></td>
+                <td><input type="text" th:field="*{adres.nr_lokalu}" maxlength="5"/></td>
             </tr>
             <tr>
                 <td>Kod Pocztowy</td>
-                <td><input type="text" th:field="*{adres.kod_pocztowy}"/></td>
+                <td><input type="text" th:field="*{adres.kod_pocztowy}" required pattern="\d{2}-\d{3}" title="Kod pocztowy musi mieć format 00-000."/></td>
             </tr>
         </table>
 

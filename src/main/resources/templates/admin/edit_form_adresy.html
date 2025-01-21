@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edytuj Adres</title>
 </head>
 <body>
 <div align="center">
@@ -16,30 +16,30 @@
             </tr>
             <tr>
                 <td>Kraj:</td>
-                <td><input type="text" th:field="*{kraj}"/></td>
+                <td><input type="text" th:field="*{kraj}" required maxlength="20"/></td>
             </tr>
             <tr>
                 <td>Miasto:</td>
-                <td><input type="text" th:field="*{miasto}"/></td>
+                <td><input type="text" th:field="*{miasto}" required maxlength="30"/></td>
             </tr>
             <tr>
                 <td>Ulica:</td>
-                <td><input type="text" th:field="*{ulica}"/></td>
+                <td><input type="text" th:field="*{ulica}" required maxlength="40"/></td>
             </tr>
             <tr>
                 <td>Nr_budynku:</td>
-                <td><input type="text" th:field="*{nr_budynku}"/></td>
+                <td><input type="text" th:field="*{nr_budynku}" required maxlength="6"/></td>
             </tr>
             <tr>
                 <td>Nr_likalu:</td>
-                <td><input type="text" th:field="*{nr_lokalu}"/></td>
+                <td><input type="text" th:field="*{nr_lokalu}" maxlength="5"/></td>
             </tr>
             <tr>
                 <td>Kod_pocztowy:</td>
-                <td><input type="text" th:field="*{kod_pocztowy}"/></td>
+                <td><input type="text" th:field="*{kod_pocztowy}" required pattern="\d{2}-\d{3}" title="Kod pocztowy musi mieć format 00-000."/></td>
             </tr>
             <tr>
-                <td colspan="2"><button type="submit">Save</button> </td>
+                <td colspan="2"><button type="submit">Save</button></td>
             </tr>
         </table>
     </form>

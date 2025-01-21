@@ -8,9 +8,9 @@
 <form th:action="@{/register/save}" th:object="${userRegistration}" method="post">
   <fieldset>
     <legend>Dane członka klubu</legend>
-    <input type="text" th:field="*{czlonek.pesel}" placeholder="PESEL" required/><br/>
-    <input type="text" th:field="*{czlonek.imie}" placeholder="Imię" required/><br/>
-    <input type="text" th:field="*{czlonek.nazwisko}" placeholder="Nazwisko" required/><br/>
+    <input type="text" th:field="*{czlonek.pesel}" placeholder="PESEL" required pattern="\d{11}" title="PESEL musi mieć dokładnie 11 cyfr." maxlength="11"/><br/>
+    <input type="text" th:field="*{czlonek.imie}" placeholder="Imię" required maxlength="20" pattern="[A-Za-z]+" title="Dozwolone tylko litery."/><br/>
+    <input type="text" th:field="*{czlonek.nazwisko}" placeholder="Nazwisko" required maxlength="30" pattern="[A-Za-z]+" title="Dozwolone tylko litery."/><br/>
     <input type="date" th:field="*{czlonek.data_urodzenia}" placeholder="Data urodzenia" required/><br/>
     <select id="plec" th:field="*{czlonek.plec}" required>
       <option value="" disabled selected>Wybierz płeć</option>
@@ -18,16 +18,16 @@
       <option value="K">Kobieta</option>
     </select>
     <br/>
-    <input type="text" th:field="*{czlonek.telefon}" placeholder="Telefon" required/><br/>
+    <input type="tel" th:field="*{czlonek.telefon}" placeholder="Telefon" required pattern="\d{9}" title="Numer telefonu musi mieć 9 cyfr."/><br/>
   </fieldset>
   <fieldset>
     <legend>Adres</legend>
-    <input type="text" th:field="*{adres.kraj}" placeholder="Kraj" required/><br/>
-    <input type="text" th:field="*{adres.miasto}" placeholder="Miasto" required/><br/>
-    <input type="text" th:field="*{adres.ulica}" placeholder="Ulica" required/><br/>
-    <input type="text" th:field="*{adres.nr_budynku}" placeholder="Nr budynku" required/><br/>
-    <input type="text" th:field="*{adres.nr_lokalu}" placeholder="Nr lokalu"/><br/>
-    <input type="text" th:field="*{adres.kod_pocztowy}" placeholder="Kod pocztowy" required/><br/>
+    <input type="text" th:field="*{adres.kraj}" placeholder="Kraj" required maxlength="20"/><br/>
+    <input type="text" th:field="*{adres.miasto}" placeholder="Miasto" required maxlength="30"/><br/>
+    <input type="text" th:field="*{adres.ulica}" placeholder="Ulica" required maxlength="40"/><br/>
+    <input type="text" th:field="*{adres.nr_budynku}" placeholder="Nr budynku" required maxlength="6"/><br/>
+    <input type="text" th:field="*{adres.nr_lokalu}" placeholder="Nr lokalu" maxlength="5"/><br/>
+    <input type="text" th:field="*{adres.kod_pocztowy}" placeholder="Kod pocztowy" required pattern="\d{2}-\d{3}" title="Kod pocztowy musi mieć format 00-000."/><br/>
   </fieldset>
   <fieldset>
     <legend>Dane logowania</legend>

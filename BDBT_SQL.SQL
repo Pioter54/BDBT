@@ -1,6 +1,6 @@
 ﻿/*
 Created: 01.12.2024
-Modified: 15.01.2025
+Modified: 16.01.2025
 Project: Klub wysokogórski
 Model: Oracle 19c logicall
 Company: Politechnika Warszawska
@@ -334,7 +334,7 @@ CREATE TABLE Adresy(
                        Ulica Varchar2(40 ) NOT NULL,
                        Nr_budynku Varchar2(6 ) NOT NULL,
                        Nr_lokalu Varchar2(5 ),
-                       Kod_pocztowy Char(6 ) NOT NULL
+                       Kod_pocztowy Varchar2(6 ) NOT NULL
 )
 /
 

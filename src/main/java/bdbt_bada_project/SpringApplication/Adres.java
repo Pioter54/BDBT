@@ -7,12 +7,12 @@ public class Adres {
     private String Ulica;
     private int Nr_budynku;
     private int Nr_lokalu; // Zmieniony na int
-    private int Kod_pocztowy;
+    private String Kod_pocztowy;
 
     public Adres() {
     }
 
-    public Adres(int nr_adresu, String kraj, String miasto, String ulica, int nr_budynku, int nr_lokalu, int kod_pocztowy) {
+    public Adres(int nr_adresu, String kraj, String miasto, String ulica, int nr_budynku, int nr_lokalu, String kod_pocztowy) {
         Nr_adresu = nr_adresu;
         Kraj = kraj;
         Miasto = miasto;
@@ -70,11 +70,11 @@ public class Adres {
         Nr_lokalu = nr_lokalu;
     }
 
-    public int getKod_pocztowy() {
+    public String getKod_pocztowy() {
         return Kod_pocztowy;
     }
 
-    public void setKod_pocztowy(int kod_pocztowy) {
+    public void setKod_pocztowy(String kod_pocztowy) {
         Kod_pocztowy = kod_pocztowy;
     }
 

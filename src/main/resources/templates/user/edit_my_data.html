@@ -10,21 +10,20 @@
     <h1 class="text-center">Edycja Twoich Danych</h1>
     <form action="#" th:action="@{/update_my_data}" th:object="${userRegistration}" method="post" class="mt-4">
 
-        <!-- Sekcja Danych Użytkownika -->
         <h2>Dane Osobowe</h2>
         <div class="form-group">
             <label for="imie">Imię:</label>
-            <input type="text" id="imie" class="form-control" th:field="*{czlonek.imie}" required/>
+            <input type="text" id="imie" class="form-control" th:field="*{czlonek.imie}" required maxlength="20" pattern="[A-Za-z]+" title="Dozwolone tylko litery."/>
         </div>
 
         <div class="form-group">
             <label for="nazwisko">Nazwisko:</label>
-            <input type="text" id="nazwisko" class="form-control" th:field="*{czlonek.nazwisko}" required/>
+            <input type="text" id="nazwisko" class="form-control" th:field="*{czlonek.nazwisko}" required maxlength="30" pattern="[A-Za-z]+" title="Dozwolone tylko litery."/>
         </div>
 
         <div class="form-group">
             <label for="pesel">PESEL:</label>
-            <input type="text" id="pesel" class="form-control" th:field="*{czlonek.pesel}" required/>
+            <input type="text" id="pesel" class="form-control" th:field="*{czlonek.pesel}" required pattern="\d{11}" title="PESEL musi mieć dokładnie 11 cyfr." maxlength="11"/>
         </div>
 
         <div class="form-group">
@@ -43,39 +42,38 @@
 
         <div class="form-group">
             <label for="telefon">Telefon:</label>
-            <input type="text" id="telefon" class="form-control" th:field="*{czlonek.telefon}" required/>
+            <input type="tel" id="telefon" class="form-control" th:field="*{czlonek.telefon}" required pattern="\d{9}" title="Numer telefonu musi mieć 9 cyfr."/>
         </div>
 
-        <!-- Sekcja Adresu -->
         <h2>Adres</h2>
         <div class="form-group">
             <label for="kraj">Kraj:</label>
-            <input type="text" id="kraj" class="form-control" th:field="*{adres.kraj}" required/>
+            <input type="text" id="kraj" class="form-control" th:field="*{adres.kraj}" required maxlength="20"/>
         </div>
 
         <div class="form-group">
             <label for="miasto">Miasto:</label>
-            <input type="text" id="miasto" class="form-control" th:field="*{adres.miasto}" required/>
+            <input type="text" id="miasto" class="form-control" th:field="*{adres.miasto}" required maxlength="30"/>
         </div>
 
         <div class="form-group">
             <label for="ulica">Ulica:</label>
-            <input type="text" id="ulica" class="form-control" th:field="*{adres.ulica}" required/>
+            <input type="text" id="ulica" class="form-control" th:field="*{adres.ulica}" required maxlength="40"/>
         </div>
 
         <div class="form-group">
             <label for="nr_budynku">Nr Budynku:</label>
-            <input type="text" id="nr_budynku" class="form-control" th:field="*{adres.nr_budynku}" required/>
+            <input type="text" id="nr_budynku" class="form-control" th:field="*{adres.nr_budynku}" required maxlength="6"/>
         </div>
 
         <div class="form-group">
             <label for="nr_lokalu">Nr Lokalu:</label>
-            <input type="text" id="nr_lokalu" class="form-control" th:field="*{adres.nr_lokalu}"/>
+            <input type="text" id="nr_lokalu" class="form-control" th:field="*{adres.nr_lokalu}" maxlength="5"/>
         </div>
 
         <div class="form-group">
             <label for="kod_pocztowy">Kod Pocztowy:</label>
-            <input type="text" id="kod_pocztowy" class="form-control" th:field="*{adres.kod_pocztowy}" required/>
+            <input type="text" id="kod_pocztowy" class="form-control" th:field="*{adres.kod_pocztowy}" required pattern="\d{2}-\d{3}" title="Kod pocztowy musi mieć format 00-000."/>
         </div>
 
         <h2>Dane Logowania</h2>
@@ -89,8 +87,6 @@
             <input type="password" id="password" class="form-control" th:field="*{loginData.password}" placeholder="Wprowadź nowe hasło (opcjonalnie)"/>
         </div>
 
-
-        <!-- Przyciski -->
         <div class="form-group text-center">
             <button type="submit" class="btn btn-primary">Zapisz Zmiany</button>
             <a href="/main_user" class="btn btn-secondary">Anuluj</a>

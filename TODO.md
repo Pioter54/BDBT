@@ -24,7 +24,7 @@ Zrobione i do zrobienia
 - [x] Dodanie dla widoku użytkownika tabeli wyprawy (bez możliwiści edytowania ale z możliwością zapisu na wyprawę)
 - [x] Dodanie możliwości sprawdzenia na jakie wycieczki jest zapisany użytkownik
 - [x] Dodanie możliwości wypisania się z wycieczki (i wyszarzenie guzika zapisz na już zapisanej)
-- [ ] Zabezpieczenie wszytskich tabeli przed dodawaniem złego twypu i złej długości danych
+- [x] Zabezpieczenie wszytskich tabeli przed dodawaniem złego twypu i złej długości danych
 - [ ] Ujednolicenie wyglądu stron
 - [ ] Dodanie jakiegoś stylu CSS (może być jakiś z generatora)
 - [ ] Zrobienie popup po kliknięciu usuń z zatwierdzeniem (przy usuwaniu adresu ostrzeżenie że to może skutkować usunięciem użytkownika i prośba o wpisanie hasła)
@@ -34,5 +34,5 @@ Zrobione i do zrobienia
 - [ ] **Opcjonalne:** Dodanie zabezpieczeń przed SQL injection
 - [ ] **Opcjonalne:** Dodanie zabezpieczeń przed XSS
 - [ ] **Opcjonalne:** Dodanie zabezpieczeń przed HTML Injection 
-- [ ] Zrobienie ładniejszych stron błędów
+- [ ] **Opcjonalne:** Zrobienie ładniejszych stron błędów
 - [ ] Dodać automatyczne wylogowywanie po czasie

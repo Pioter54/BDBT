@@ -24,7 +24,7 @@ class AdresDAOTest extends Object {
 
     @Test
     void save() {
-        Adres adres = new Adres(1,"Polska", "Warszawa", "Nowowiejska", 1, 1, 1);
+        Adres adres = new Adres(1,"Polska", "Warszawa", "Nowowiejska", 1, 1, "1");
         dao.save(adres);
     }
 
@@ -50,7 +50,7 @@ class AdresDAOTest extends Object {
         adres.setUlica("Jopska");
         adres.setNr_budynku(3);
         adres.setNr_lokalu(4);
-        adres.setKod_pocztowy(9947);
+        adres.setKod_pocztowy("9947");
         dao.update(adres);
     }
 
