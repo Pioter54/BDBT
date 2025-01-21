@@ -33,3 +33,4 @@ Zrobione i do zrobienia
 - [ ] **Opcjonalne:** Dodanie zabezpieczeń przed HTML Injection 
 - [ ] Dodanie dla widoku admina tabeli schroniska
 - [ ] Zrobienie ładniejszych stron błędów
+- [ ] Dodać automatyczne wylogowywanie po czasie
