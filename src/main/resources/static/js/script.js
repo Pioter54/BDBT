@@ -26,3 +26,17 @@ function enforceLength(input) {
     // Aktualizuj wartość inputa
     input.value = newValue;
 }
+
+let timeout;
+
+function startTimer() {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+        alert("Zostaniesz wylogowany za chwilę z powodu braku aktywności.");
+        window.location.href = '/logout';
+    }, 1 * 60 * 1000); // 14 minut (zostawia 1 minutę na reakcję)
+}
+
+document.addEventListener('mousemove', startTimer);
+document.addEventListener('keypress', startTimer);
+startTimer();

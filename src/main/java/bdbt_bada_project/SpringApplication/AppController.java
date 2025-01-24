@@ -410,6 +410,11 @@ public class AppController implements WebMvcConfigurer {
 
             return "redirect:/moje_wycieczki";
         }
+
+        @GetMapping("/session-expired")
+        public String sessionExpired() {
+            return "session-expired"; // Nazwa pliku HTML bez rozszerzenia
+        }
     }
 
     @RequestMapping(value = {"/main_admin"})

@@ -105,6 +105,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutUrl("/index")
                 .logoutSuccessUrl("/index")
-                .permitAll();
+                .permitAll()
+                .and()
+                .sessionManagement()
+                .invalidSessionUrl("/session-expired") // URL do przekierowania po wygaśnięciu sesji
+                .maximumSessions(1)         // Maksymalna liczba sesji na użytkownika
+                .expiredUrl("/session-expired");
     }
 }
