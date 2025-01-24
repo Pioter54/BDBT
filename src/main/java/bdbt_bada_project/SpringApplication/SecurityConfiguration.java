@@ -108,8 +108,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .sessionManagement()
-                .invalidSessionUrl("/session-expired") // URL do przekierowania po wygaśnięciu sesji
+                .invalidSessionUrl("/login") // URL do przekierowania po wygaśnięciu sesji
                 .maximumSessions(1)         // Maksymalna liczba sesji na użytkownika
-                .expiredUrl("/session-expired");
+                .expiredUrl("/login");
     }
 }

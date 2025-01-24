@@ -1,6 +1,7 @@
 package bdbt_bada_project.SpringApplication;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -12,7 +13,11 @@ public class LoginDAO {
 
     public void save(LoginData loginData) {
         String sql = "INSERT INTO DANE_LOGOWANIA (email, password, nr_czlonka_klubu) VALUES (?, ?, ?)";
-        jdbcTemplate.update(sql, loginData.getEmail(), loginData.getPassword(), loginData.getNrCzlonkaKlubu());
+        try {
+            jdbcTemplate.update(sql, loginData.getEmail(), loginData.getPassword(), loginData.getNrCzlonkaKlubu());
+        } catch (DataIntegrityViolationException ex) {
+            throw new DuplicateEmailException("Podany adres e-mail jest już zarejestrowany: " + loginData.getEmail(), ex);
+        }
     }
 
     public LoginData findByEmail(String email) {

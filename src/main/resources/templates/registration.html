@@ -31,10 +31,14 @@
   </fieldset>
   <fieldset>
     <legend>Dane logowania</legend>
-    <input type="email" th:field="*{loginData.email}" placeholder="Email" required/><br/>
+    <input type="email" th:field="*{loginData.email}" placeholder="your@email.com" required/><br/>
     <input type="password" th:field="*{loginData.password}" placeholder="Hasło" required/><br/>
   </fieldset>
   <button type="submit">Zarejestruj</button>
 </form>
+<div style="color: red;" th:if="${errorMessage}">
+  <p th:text="${errorMessage}"></p>
+</div>
+
 </body>
 </html>

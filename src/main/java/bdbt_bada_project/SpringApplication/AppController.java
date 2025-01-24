@@ -1,6 +1,7 @@
 package bdbt_bada_project.SpringApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -162,7 +163,17 @@ public class AppController implements WebMvcConfigurer {
         private PasswordEncoder passwordEncoder;
 
         @RequestMapping(value = "/register/save", method = RequestMethod.POST)
-        public String registerUser(@ModelAttribute("userRegistration") UserRegistrationDTO userRegistration) {
+        public String registerUser(@ModelAttribute("userRegistration") UserRegistrationDTO userRegistration, Model model) {
+            // Sprawdzanie, czy email już istnieje
+            String email = userRegistration.getLoginData().getEmail();
+            try {
+                loginDAO.findByEmail(email);
+                model.addAttribute("errorMessage", "Podany adres e-mail jest już zarejestrowany.");
+                return "registration"; // Powrót do formularza rejestracji z komunikatem błędu
+            } catch (EmptyResultDataAccessException e) {
+                // Email nie istnieje, można kontynuować
+            }
+
             // Zapisz adres i uzyskaj jego ID
             Adres adres = userRegistration.getAdres();
             int nrAdresu = adresDAO.saveAndReturnId(adres);
