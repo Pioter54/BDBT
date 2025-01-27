@@ -28,7 +28,7 @@ Zrobione i do zrobienia
 - [x] Dodać automatyczne wylogowywanie po czasie
 - [ ] Ujednolicenie wyglądu stron
 - [ ] Dodanie jakiegoś stylu CSS (może być jakiś z generatora)
-- [ ] Zrobienie popup po kliknięciu usuń z zatwierdzeniem (przy usuwaniu adresu ostrzeżenie że to może skutkować usunięciem użytkownika i prośba o wpisanie hasła)
+- [ ] Zrobienie popup po kliknięciu usuń z zatwierdzeniem (przy usuwaniu adresu ostrzeżenie że to może skutkować usunięciem wsztstkich danych powiąazabego użytkownika i prośba o wpisanie hasła)
 - [ ] Zadbanie o wygląd i klarowność strony (stworzenie czegoś na stronie home)
 - [ ] Usująć wszystkie literówki
 - [ ] Dodanie że przy usunięciu jednej tabeli usuwają się też tabele powiązane (przy usunięciu członka mają sie też usunąć jego dane logowania i adres)

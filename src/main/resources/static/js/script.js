@@ -34,7 +34,7 @@ function startTimer() {
     timeout = setTimeout(() => {
         alert("Zostaniesz wylogowany za chwilę z powodu braku aktywności.");
         window.location.href = '/logout';
-    }, 1 * 60 * 1000); // 14 minut (zostawia 1 minutę na reakcję)
+    }, 14 * 60 * 1000); // 14 minut (zostawia 1 minutę na reakcję)
 }
 
 document.addEventListener('mousemove', startTimer);
