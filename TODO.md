@@ -27,7 +27,7 @@ Zrobione i do zrobienia
 - [x] Zabezpieczenie wszytskich tabeli przed dodawaniem złego twypu i złej długości danych
 - [x] Dodać automatyczne wylogowywanie po czasie
 - [x] Ujednolicenie wyglądu stron
-- [ ] Poprawienie tego gdzie cofa anuluj u admina
+- [x] Poprawienie tego gdzie cofa anuluj u admina
 - [ ] Dodanie navibar dla usera tam gdzie nie ma 
 - [ ] Dodanie zawijania tekstu w wyprawy user
 - [ ] Poprawienie wyglądu regiter
