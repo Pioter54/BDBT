@@ -28,7 +28,7 @@ Zrobione i do zrobienia
 - [x] Dodać automatyczne wylogowywanie po czasie
 - [x] Ujednolicenie wyglądu stron
 - [x] Poprawienie tego gdzie cofa anuluj u admina
-- [ ] Dodanie navibar dla usera tam gdzie nie ma 
+- [x] Dodanie navibar dla usera tam gdzie nie ma 
 - [ ] Dodanie zawijania tekstu w wyprawy user
 - [ ] Poprawienie wyglądu regiter
 - [ ] Dodanie jakchś głupot do admin main user nain i home
@@ -38,3 +38,6 @@ Zrobione i do zrobienia
 - [ ] Zrobienie ciekawszych stron błędów
 - [ ] Usująć wszystkie literówki
 - [ ] Dodanie że przy usunięciu jednej tabeli usuwają się też tabele powiązane (przy usunięciu członka mają sie też usunąć jego dane logowania i adres)
+- [ ] Poprawienie wyglądu strony logowania
+- [ ] Przesunięcie guzika logout dla user
+- [ ] Zrobienie żeby na stronie wyświetlał się email a nie imie użytkownika

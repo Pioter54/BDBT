@@ -29,7 +29,7 @@
                     <a class="nav-link" th:href="@{/moje_wycieczki}">Moje Wycieczki</a>
                 </li>
 
-
+                <li class="nav-item">
                 <a class="nav-link" th:href="@{/edit_my_data}">Profil</a>
                 </li>
 
@@ -38,14 +38,16 @@
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Main
+                    <a class="nav-link" th:href="@{/main_user}">Main
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
-                            style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
+                    <form method="post" th:action="@{/index}" class="form-inline my-2 my-lg-0">
+                        <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Logout
+                        </button>
+                    </form>
                 </li>
 
             </ul>
