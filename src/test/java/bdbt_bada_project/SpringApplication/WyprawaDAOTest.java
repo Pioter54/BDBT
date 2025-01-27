@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,7 +26,7 @@ class WyprawaDAOTest {
 
     @Test
     void save() {
-        Wyprawa wyprawa = new Wyprawa(1, "2025-01-01", "2025-01-10", "Wycieczka w góry", 1999.99);
+        Wyprawa wyprawa = new Wyprawa(1, (LocalDate.of(2024, 12, 1)), (LocalDate.of(2024, 12, 1)), "Wycieczka w góry", 1999.99);
         dao.save(wyprawa);
     }
 
@@ -46,8 +47,8 @@ class WyprawaDAOTest {
     void update() {
         Wyprawa wyprawa = new Wyprawa();
         wyprawa.setNr_wycieczki(1);
-        wyprawa.setData_od("2025-02-01");
-        wyprawa.setData_do("2025-02-15");
+        wyprawa.setData_od((LocalDate.of(2024, 12, 1)));
+        wyprawa.setData_do((LocalDate.of(2024, 12, 1)));
         wyprawa.setOpis("Zaktualizowana wycieczka na Mazury");
         wyprawa.setCena(2499.99);
         dao.update(wyprawa);

@@ -1,15 +1,24 @@
 package bdbt_bada_project.SpringApplication;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
+
 public class Wyprawa {
     private int nr_wycieczki;
-    private String data_od;
-    private String data_do;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate data_od;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate data_do;
     private String opis;
     private double cena;
 
     public Wyprawa() {}
 
-    public Wyprawa(int nr_wycieczki, String data_od, String data_do, String opis, double cena) {
+    public Wyprawa(int nr_wycieczki, LocalDate data_od, LocalDate data_do, String opis, double cena) {
         this.nr_wycieczki = nr_wycieczki;
         this.data_od = data_od;
         this.data_do = data_do;
@@ -26,19 +35,19 @@ public class Wyprawa {
         this.nr_wycieczki = nr_wycieczki;
     }
 
-    public String getData_od() {
+    public LocalDate getData_od() {
         return data_od;
     }
 
-    public void setData_od(String data_od) {
+    public void setData_od(LocalDate data_od) {
         this.data_od = data_od;
     }
 
-    public String getData_do() {
+    public LocalDate getData_do() {
         return data_do;
     }
 
-    public void setData_do(String data_do) {
+    public void setData_do(LocalDate data_do) {
         this.data_do = data_do;
     }
 

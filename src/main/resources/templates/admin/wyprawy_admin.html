@@ -9,6 +9,16 @@
         .navbar-brand {
             color: white !important;
         }
+        th, td {
+            text-align: center;
+            vertical-align: middle;
+        }
+        td.opis {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 300px; /* Adjust width as needed */
+        }
     </style>
 </head>
 <body>
@@ -63,14 +73,13 @@
     <a href="/new_wyprawa">Dodaj nową wyprawę</a>
     <br/><br/>
     <!-- Table -->
-    <table border="1" cellpadding="10">
+    <table border="1" class="table table-bordered">
         <style>
             th, td {
-                text-align: center;
-                vertical-align: middle;
+                text-align: center; /* Centrowanie tekstu w poziomie */
+                vertical-align: middle; /* Centrowanie tekstu w pionie */
             }
         </style>
-
         <!-- Table header -->
         <thead>
         <tr>
@@ -88,7 +97,7 @@
             <td th:text="${wyprawa.nr_wycieczki}">Nr_wycieczki</td>
             <td th:text="${wyprawa.data_od}">Data_od</td>
             <td th:text="${wyprawa.data_do}">Data_do</td>
-            <td th:text="${wyprawa.opis}">Opis</td>
+            <td class="opis" th:text="${wyprawa.opis}">Opis</td>
             <td th:text="${wyprawa.cena}">Cena</td>
             <td>
                 <a th:href="@{'/edit_wyprawa/' + ${wyprawa.nr_wycieczki}}">Edit</a>

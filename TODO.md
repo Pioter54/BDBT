@@ -26,13 +26,15 @@ Zrobione i do zrobienia
 - [x] Dodanie możliwości wypisania się z wycieczki (i wyszarzenie guzika zapisz na już zapisanej)
 - [x] Zabezpieczenie wszytskich tabeli przed dodawaniem złego twypu i złej długości danych
 - [x] Dodać automatyczne wylogowywanie po czasie
-- [ ] Ujednolicenie wyglądu stron
+- [x] Ujednolicenie wyglądu stron
+- [ ] Poprawienie tego gdzie cofa anuluj u admina
+- [ ] Dodanie navibar dla usera tam gdzie nie ma 
+- [ ] Dodanie zawijania tekstu w wyprawy user
+- [ ] Poprawienie wyglądu regiter
+- [ ] Dodanie jakchś głupot do admin main user nain i home
 - [ ] Dodanie jakiegoś stylu CSS (może być jakiś z generatora)
 - [ ] Zrobienie popup po kliknięciu usuń z zatwierdzeniem (przy usuwaniu adresu ostrzeżenie że to może skutkować usunięciem wsztstkich danych powiąazabego użytkownika i prośba o wpisanie hasła)
 - [ ] Zadbanie o wygląd i klarowność strony (stworzenie czegoś na stronie home)
+- [ ] Zrobienie ciekawszych stron błędów
 - [ ] Usująć wszystkie literówki
 - [ ] Dodanie że przy usunięciu jednej tabeli usuwają się też tabele powiązane (przy usunięciu członka mają sie też usunąć jego dane logowania i adres)
-- [ ] **Opcjonalne:** Dodanie zabezpieczeń przed SQL injection
-- [ ] **Opcjonalne:** Dodanie zabezpieczeń przed XSS
-- [ ] **Opcjonalne:** Dodanie zabezpieczeń przed HTML Injection 
-- [ ] **Opcjonalne:** Zrobienie ładniejszych stron błędów

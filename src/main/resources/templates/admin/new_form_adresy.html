@@ -1,52 +1,53 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Nowy Adres</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-<div align="center">
-    <!-- Page header -->
-    <h1>Podaj nowy adres</h1>
+<div class="container mt-5">
+    <h1 class="text-center">Podaj Nowy Adres</h1>
+    <form action="@{/save_adres}" th:action="@{/save_adres}" th:object="${adres}" method="post" class="mt-4">
+        <div class="form-group">
+            <label for="kraj">Kraj:</label>
+            <input type="text" id="kraj" class="form-control" th:field="*{kraj}" required maxlength="20">
+        </div>
 
-    <br/>
-    <!-- End line/new line -->
-    <form action="@{/save_adres}" th:action="@{/save_adres}" th:object="${adres}" method="post">
-        <!-- Table -->
-        <table border="1" cellpadding="10">
-            <!-- Table row -->
-            <tr>
-                <td>Kraj</td>
-                <td><input type="text" th:field="*{kraj}" required maxlength="20"/></td>
-            </tr>
-            <tr>
-                <td>Miasto</td>
-                <td><input type="text" th:field="*{miasto}" required maxlength="30"/></td>
-            </tr>
-            <tr>
-                <td>Ulica</td>
-                <td><input type="text" th:field="*{ulica}" required maxlength="40"/></td>
-            </tr>
-            <tr>
-                <td>Nr Budynku</td>
-                <td><input type="text" th:field="*{nr_budynku}" required maxlength="6"/></td>
-            </tr>
-            <tr>
-                <td>Nr Lokalu</td>
-                <td><input type="text" th:field="*{nr_lokalu}" maxlength="5"/></td>
-            </tr>
-            <tr>
-                <td>Kod Pocztowy</td>
-                <td><input type="text" th:field="*{kod_pocztowy}" required pattern="\d{2}-\d{3}" title="Kod pocztowy musi mieć format 00-000."/></td>
-            </tr>
+        <div class="form-group">
+            <label for="miasto">Miasto:</label>
+            <input type="text" id="miasto" class="form-control" th:field="*{miasto}" required maxlength="30">
+        </div>
 
-            <!-- Button save -->
-            <tr>
-                <td colspan="2"><button type="submit">Zapisz</button></td>
-            </tr>
-        </table>
+        <div class="form-group">
+            <label for="ulica">Ulica:</label>
+            <input type="text" id="ulica" class="form-control" th:field="*{ulica}" required maxlength="40">
+        </div>
+
+        <div class="form-group">
+            <label for="nr_budynku">Nr Budynku:</label>
+            <input type="text" id="nr_budynku" class="form-control" th:field="*{nr_budynku}" required maxlength="6">
+        </div>
+
+        <div class="form-group">
+            <label for="nr_lokalu">Nr Lokalu:</label>
+            <input type="text" id="nr_lokalu" class="form-control" th:field="*{nr_lokalu}" maxlength="5">
+        </div>
+
+        <div class="form-group">
+            <label for="kod_pocztowy">Kod Pocztowy:</label>
+            <input type="text" id="kod_pocztowy" class="form-control" th:field="*{kod_pocztowy}" required pattern="\d{2}-\d{3}" title="Kod pocztowy musi mieć format 00-000.">
+        </div>
+
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary">Zapisz</button>
+            <a href="/main_admin" class="btn btn-secondary">Anuluj</a>
+        </div>
     </form>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,40 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Edytuj Wyprawę</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-<div align="center">
-    <h1>Edytuj Wyprawę</h1>
-    <br/>
-    <form action="#" th:action="@{/update_wyprawa}" th:object="${wyprawa}" method="post">
-        <table border="1" cellpadding="10">
-            <tr>
-                <td>Nr_wycieczki</td>
-                <td><input type="text" th:field="*{nr_wycieczki}" readonly="readonly"></td>
-            </tr>
-            <tr>
-                <td>Data_od:</td>
-                <td><input type="date" th:field="*{data_od}" required/></td>
-            </tr>
-            <tr>
-                <td>Data_do:</td>
-                <td><input type="date" th:field="*{data_do}" required/></td>
-            </tr>
-            <tr>
-                <td>Opis:</td>
-                <td><textarea th:field="*{opis}" required maxlength="400"></textarea></td>
-            </tr>
-            <tr>
-                <td>Cena:</td>
-                <td><input type="number" step="0.01" th:field="*{cena}"/></td>
-            </tr>
-            <tr>
-                <td colspan="2"><button type="submit">Save</button></td>
-            </tr>
-        </table>
+<div class="container mt-5">
+    <h1 class="text-center">Edytuj Wyprawę</h1>
+    <form action="#" th:action="@{/update_wyprawa}" th:object="${wyprawa}" method="post" class="mt-4">
+        <div class="form-group">
+            <label for="nr_wycieczki">Nr Wycieczki:</label>
+            <input type="text" id="nr_wycieczki" class="form-control" th:field="*{nr_wycieczki}" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="data_od">Data od:</label>
+            <input type="date" id="data_od" class="form-control" th:field="*{data_od}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="data_do">Data do:</label>
+            <input type="date" id="data_do" class="form-control" th:field="*{data_do}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="opis">Opis:</label>
+            <textarea id="opis" class="form-control" th:field="*{opis}" required maxlength="400"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="cena">Cena:</label>
+            <input type="number" id="cena" class="form-control" step="0.01" min="0" th:field="*{cena}">
+        </div>
+
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary">Zapisz</button>
+            <a href="/main_user" class="btn btn-secondary">Anuluj</a>
+        </div>
     </form>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
