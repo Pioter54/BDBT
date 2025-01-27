@@ -29,7 +29,7 @@ Zrobione i do zrobienia
 - [x] Ujednolicenie wyglądu stron
 - [x] Poprawienie tego gdzie cofa anuluj u admina
 - [x] Dodanie navibar dla usera tam gdzie nie ma 
-- [ ] Dodanie zawijania tekstu w wyprawy user
+- [x] Dodanie zawijania tekstu w wyprawy user
 - [ ] Poprawienie wyglądu regiter
 - [ ] Dodanie jakchś głupot do admin main user nain i home
 - [ ] Dodanie jakiegoś stylu CSS (może być jakiś z generatora)

@@ -21,6 +21,12 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
 
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/main_user}">Main
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/wyprawy_user}">Wyprawy</a>
                 </li>
@@ -35,12 +41,6 @@
 
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/index}">Home</a>
-                </li>
-
-                <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/main_user}">Main
-                        <span class="sr-only">(current)</span>
-                    </a>
                 </li>
 
                 <li class="nav-item">
@@ -66,9 +66,6 @@
                         to the main page!</label>
                     <div style="font-size:20px">If you want to logout, click "Logout" button under this text.</div>
                 </div>
-
-                <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Logout
-                </button>
             </form>
         </div>
 
