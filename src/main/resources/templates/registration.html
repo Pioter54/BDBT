@@ -1,44 +1,121 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+  <meta charset="UTF-8">
   <title>Rejestracja</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Formularz rejestracji</h1>
-<form th:action="@{/register/save}" th:object="${userRegistration}" method="post">
-  <fieldset>
-    <legend>Dane członka klubu</legend>
-    <input type="text" th:field="*{czlonek.pesel}" placeholder="PESEL" required pattern="\d{11}" title="PESEL musi mieć dokładnie 11 cyfr." maxlength="11"/><br/>
-    <input type="text" th:field="*{czlonek.imie}" placeholder="Imię" required maxlength="20" pattern="[A-Za-z]+" title="Dozwolone tylko litery."/><br/>
-    <input type="text" th:field="*{czlonek.nazwisko}" placeholder="Nazwisko" required maxlength="30" pattern="[A-Za-z]+" title="Dozwolone tylko litery."/><br/>
-    <input type="date" th:field="*{czlonek.data_urodzenia}" placeholder="Data urodzenia" required/><br/>
-    <select id="plec" th:field="*{czlonek.plec}" required>
-      <option value="" disabled selected>Wybierz płeć</option>
-      <option value="M">Mężczyzna</option>
-      <option value="K">Kobieta</option>
-    </select>
-    <br/>
-    <input type="tel" th:field="*{czlonek.telefon}" placeholder="Telefon" required pattern="\d{9}" title="Numer telefonu musi mieć 9 cyfr."/><br/>
-  </fieldset>
-  <fieldset>
-    <legend>Adres</legend>
-    <input type="text" th:field="*{adres.kraj}" placeholder="Kraj" required maxlength="20"/><br/>
-    <input type="text" th:field="*{adres.miasto}" placeholder="Miasto" required maxlength="30"/><br/>
-    <input type="text" th:field="*{adres.ulica}" placeholder="Ulica" required maxlength="40"/><br/>
-    <input type="text" th:field="*{adres.nr_budynku}" placeholder="Nr budynku" required maxlength="6"/><br/>
-    <input type="text" th:field="*{adres.nr_lokalu}" placeholder="Nr lokalu" maxlength="5"/><br/>
-    <input type="text" th:field="*{adres.kod_pocztowy}" placeholder="Kod pocztowy" required pattern="\d{2}-\d{3}" title="Kod pocztowy musi mieć format 00-000."/><br/>
-  </fieldset>
-  <fieldset>
-    <legend>Dane logowania</legend>
-    <input type="email" th:field="*{loginData.email}" placeholder="your@email.com" required/><br/>
-    <input type="password" th:field="*{loginData.password}" placeholder="Hasło" required/><br/>
-  </fieldset>
-  <button type="submit">Zarejestruj</button>
-</form>
-<div style="color: red;" th:if="${errorMessage}">
-  <p th:text="${errorMessage}"></p>
+<div class="container mt-5">
+  <h1 class="text-center">Formularz Rejestracji</h1>
+  <form th:action="@{/register/save}" th:object="${userRegistration}" method="post" class="mt-4">
+    <h2 class="text-center">Dane Członka Klubu</h2>
+    <div class="form-group">
+      <label for="pesel">PESEL:</label>
+      <input type="text" id="pesel" class="form-control" th:field="*{czlonek.pesel}" placeholder="PESEL" required pattern="\d{11}" title="PESEL musi mieć dokładnie 11 cyfr." maxlength="11">
+    </div>
+
+    <div class="form-group">
+      <label for="imie">Imię:</label>
+      <input type="text" id="imie" class="form-control" th:field="*{czlonek.imie}" placeholder="Imię" required maxlength="20" pattern="[A-Za-z]+" title="Dozwolone tylko litery.">
+    </div>
+
+    <div class="form-group">
+      <label for="nazwisko">Nazwisko:</label>
+      <input type="text" id="nazwisko" class="form-control" th:field="*{czlonek.nazwisko}" placeholder="Nazwisko" required maxlength="30" pattern="[A-Za-z]+" title="Dozwolone tylko litery.">
+    </div>
+
+    <div class="form-group">
+      <label for="data_urodzenia">Data Urodzenia:</label>
+      <input type="date" id="data_urodzenia" class="form-control" th:field="*{czlonek.data_urodzenia}" required>
+    </div>
+
+    <div class="form-group">
+      <label for="plec">Płeć:</label>
+      <select id="plec" class="form-control" th:field="*{czlonek.plec}" required>
+        <option value="" disabled selected>Wybierz płeć</option>
+        <option value="M">Mężczyzna</option>
+        <option value="K">Kobieta</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="telefon">Telefon:</label>
+      <input type="tel" id="telefon" class="form-control" th:field="*{czlonek.telefon}" placeholder="Telefon" required pattern="\d{9}" title="Numer telefonu musi mieć 9 cyfr.">
+    </div>
+
+    <h2 class="text-center">Adres</h2>
+    <div class="form-group">
+      <label for="kraj">Kraj:</label>
+      <input type="text" id="kraj" class="form-control" th:field="*{adres.kraj}" placeholder="Kraj" required maxlength="20">
+    </div>
+
+    <div class="form-group">
+      <label for="miasto">Miasto:</label>
+      <input type="text" id="miasto" class="form-control" th:field="*{adres.miasto}" placeholder="Miasto" required maxlength="30">
+    </div>
+
+    <div class="form-group">
+      <label for="ulica">Ulica:</label>
+      <input type="text" id="ulica" class="form-control" th:field="*{adres.ulica}" placeholder="Ulica" required maxlength="40">
+    </div>
+
+    <div class="form-group">
+      <label for="nr_budynku">Nr Budynku:</label>
+      <input type="text" id="nr_budynku" class="form-control" th:field="*{adres.nr_budynku}" placeholder="Nr budynku" required maxlength="6">
+    </div>
+
+    <div class="form-group">
+      <label for="nr_lokalu">Nr Lokalu:</label>
+      <input type="text" id="nr_lokalu" class="form-control" th:field="*{adres.nr_lokalu}" placeholder="Nr lokalu" maxlength="5">
+    </div>
+
+    <div class="form-group">
+      <label for="kod_pocztowy">Kod Pocztowy:</label>
+      <input type="text" id="kod_pocztowy" class="form-control" th:field="*{adres.kod_pocztowy}" placeholder="Kod pocztowy" required pattern="\d{2}-\d{3}" title="Kod pocztowy musi mieć format 00-000.">
+    </div>
+
+    <h2 class="text-center">Dane Logowania</h2>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" class="form-control" th:field="*{loginData.email}" placeholder="your@email.com" required>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Hasło:</label>
+      <div class="input-group">
+        <input type="password" id="password" class="form-control" th:field="*{loginData.password}" placeholder="Hasło" required>
+        <div class="input-group-append">
+          <button type="button" class="btn btn-outline-secondary" id="togglePassword">Pokaż</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group text-center">
+      <button type="submit" class="btn btn-primary">Zarejestruj</button>
+      <a href="/login" class="btn btn-secondary">Anuluj</a>
+    </div>
+
+    <div class="form-group text-center text-danger" th:if="${errorMessage}">
+      <p th:text="${errorMessage}"></p>
+    </div>
+  </form>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const togglePasswordButton = document.getElementById('togglePassword');
+    const passwordField = document.getElementById('password');
+
+    togglePasswordButton.addEventListener('click', function () {
+      const type = passwordField.type === 'password' ? 'text' : 'password';
+      passwordField.type = type;
+      togglePasswordButton.textContent = type === 'password' ? 'Pokaż' : 'Ukryj';
+    });
+  });
+</script>
 </body>
 </html>

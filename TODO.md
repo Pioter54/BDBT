@@ -30,14 +30,12 @@ Zrobione i do zrobienia
 - [x] Poprawienie tego gdzie cofa anuluj u admina
 - [x] Dodanie navibar dla usera tam gdzie nie ma 
 - [x] Dodanie zawijania tekstu w wyprawy user
-- [ ] Poprawienie wyglądu regiter
+- [x] Poprawienie wyglądu regiter
+- [x] Przesunięcie guzika logout dla user
 - [ ] Dodanie jakchś głupot do admin main user nain i home
 - [ ] Dodanie jakiegoś stylu CSS (może być jakiś z generatora)
 - [ ] Zrobienie popup po kliknięciu usuń z zatwierdzeniem (przy usuwaniu adresu ostrzeżenie że to może skutkować usunięciem wsztstkich danych powiąazabego użytkownika i prośba o wpisanie hasła)
-- [ ] Zadbanie o wygląd i klarowność strony (stworzenie czegoś na stronie home)
 - [ ] Zrobienie ciekawszych stron błędów
-- [ ] Usująć wszystkie literówki
 - [ ] Dodanie że przy usunięciu jednej tabeli usuwają się też tabele powiązane (przy usunięciu członka mają sie też usunąć jego dane logowania i adres)
 - [ ] Poprawienie wyglądu strony logowania
-- [ ] Przesunięcie guzika logout dla user
 - [ ] Zrobienie żeby na stronie wyświetlał się email a nie imie użytkownika
