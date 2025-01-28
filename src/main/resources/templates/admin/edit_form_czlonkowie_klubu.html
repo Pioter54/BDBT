@@ -2,109 +2,137 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Edytuj Członka Klubu i Adres</title>
+    <title>Edytuj Członka Klubu</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .form-box {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-box h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .form-box .form-group label {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-<div class="container mt-5">
-    <h1 class="text-center">Edytuj Członka Klubu i Adres</h1>
-    <form action="#" th:action="@{/update_user_with_address}" th:object="${userRegistration}" method="post" class="mt-4">
 
-        <h2 class="text-center">Dane Członka Klubu</h2>
-        <div class="form-group">
-            <label for="nr_czlonka_klubu">Nr członka klubu:</label>
-            <input type="text" id="nr_czlonka_klubu" class="form-control" th:field="*{czlonek.nr_czlonka_klubu}" readonly>
-        </div>
+<div class="container form-container">
+    <div class="form-box">
+        <h1 class="text-center">Edytuj Członka Klubu i Adres</h1>
+        <form action="#" th:action="@{/update_user_with_address}" th:object="${userRegistration}" method="post">
 
-        <div class="form-group">
-            <label for="imie">Imię:</label>
-            <input type="text" id="imie" class="form-control" th:field="*{czlonek.imie}" required maxlength="20" pattern="[A-Za-z]+" title="Dozwolone tylko litery.">
-        </div>
+            <h2 class="text-center">Dane Członka Klubu</h2>
+            <div class="form-group">
+                <label for="nr_czlonka_klubu">Nr członka klubu:</label>
+                <input type="text" id="nr_czlonka_klubu" class="form-control" th:field="*{czlonek.nr_czlonka_klubu}" readonly>
+            </div>
 
-        <div class="form-group">
-            <label for="nazwisko">Nazwisko:</label>
-            <input type="text" id="nazwisko" class="form-control" th:field="*{czlonek.nazwisko}" required maxlength="30" pattern="[A-Za-z]+" title="Dozwolone tylko litery.">
-        </div>
+            <div class="form-group">
+                <label for="imie">Imię:</label>
+                <input type="text" id="imie" class="form-control" th:field="*{czlonek.imie}" required maxlength="20" pattern="[A-Za-z]+" title="Dozwolone tylko litery.">
+            </div>
 
-        <div class="form-group">
-            <label for="pesel">PESEL:</label>
-            <input type="text" id="pesel" class="form-control" th:field="*{czlonek.pesel}" required pattern="\d{11}" title="PESEL musi mieć dokładnie 11 cyfr." maxlength="11">
-        </div>
+            <div class="form-group">
+                <label for="nazwisko">Nazwisko:</label>
+                <input type="text" id="nazwisko" class="form-control" th:field="*{czlonek.nazwisko}" required maxlength="30" pattern="[A-Za-z]+" title="Dozwolone tylko litery.">
+            </div>
 
-        <div class="form-group">
-            <label for="data_urodzenia">Data urodzenia:</label>
-            <input type="date" id="data_urodzenia" class="form-control" th:field="*{czlonek.data_urodzenia}" required>
-        </div>
+            <div class="form-group">
+                <label for="pesel">PESEL:</label>
+                <input type="text" id="pesel" class="form-control" th:field="*{czlonek.pesel}" required pattern="\d{11}" title="PESEL musi mieć dokładnie 11 cyfr." maxlength="11">
+            </div>
 
-        <div class="form-group">
-            <label for="data_dolaczenia">Data dołączenia:</label>
-            <input type="date" id="data_dolaczenia" class="form-control" th:field="*{czlonek.data_dolaczenia}" required>
-        </div>
+            <div class="form-group">
+                <label for="data_urodzenia">Data urodzenia:</label>
+                <input type="date" id="data_urodzenia" class="form-control" th:field="*{czlonek.data_urodzenia}" required>
+            </div>
 
-        <div class="form-group">
-            <label for="data_odejscia">Data odejścia:</label>
-            <input type="date" id="data_odejscia" class="form-control" th:field="*{czlonek.data_odejscia}">
-        </div>
+            <div class="form-group">
+                <label for="data_dolaczenia">Data dołączenia:</label>
+                <input type="date" id="data_dolaczenia" class="form-control" th:field="*{czlonek.data_dolaczenia}" required>
+            </div>
 
-        <div class="form-group">
-            <label for="plec">Płeć:</label>
-            <select id="plec" class="form-control" th:field="*{czlonek.plec}" required>
-                <option value="" disabled selected>Wybierz płeć</option>
-                <option value="M">Mężczyzna</option>
-                <option value="K">Kobieta</option>
-            </select>
-        </div>
+            <div class="form-group">
+                <label for="data_odejscia">Data odejścia:</label>
+                <input type="date" id="data_odejscia" class="form-control" th:field="*{czlonek.data_odejscia}">
+            </div>
 
-        <div class="form-group">
-            <label for="telefon">Telefon:</label>
-            <input type="tel" id="telefon" class="form-control" th:field="*{czlonek.telefon}" required pattern="\d{9}" title="Numer telefonu musi mieć 9 cyfr.">
-        </div>
+            <div class="form-group">
+                <label for="plec">Płeć:</label>
+                <select id="plec" class="form-control" th:field="*{czlonek.plec}" required>
+                    <option value="" disabled selected>Wybierz płeć</option>
+                    <option value="M">Mężczyzna</option>
+                    <option value="K">Kobieta</option>
+                </select>
+            </div>
 
-        <h2 class="text-center">Dane Adresowe</h2>
-        <div class="form-group">
-            <label for="nr_adresu">Nr adresu:</label>
-            <input type="text" id="nr_adresu" class="form-control" th:field="*{adres.nr_adresu}" readonly>
-        </div>
+            <div class="form-group">
+                <label for="telefon">Telefon:</label>
+                <input type="tel" id="telefon" class="form-control" th:field="*{czlonek.telefon}" required pattern="\d{9}" title="Numer telefonu musi mieć 9 cyfr.">
+            </div>
 
-        <div class="form-group">
-            <label for="kraj">Kraj:</label>
-            <input type="text" id="kraj" class="form-control" th:field="*{adres.kraj}" required maxlength="20">
-        </div>
+            <h2 class="text-center">Dane Adresowe</h2>
+            <div class="form-group">
+                <label for="nr_adresu">Nr adresu:</label>
+                <input type="text" id="nr_adresu" class="form-control" th:field="*{adres.nr_adresu}" readonly>
+            </div>
 
-        <div class="form-group">
-            <label for="miasto">Miasto:</label>
-            <input type="text" id="miasto" class="form-control" th:field="*{adres.miasto}" required maxlength="30">
-        </div>
+            <div class="form-group">
+                <label for="kraj">Kraj:</label>
+                <input type="text" id="kraj" class="form-control" th:field="*{adres.kraj}" required maxlength="20">
+            </div>
 
-        <div class="form-group">
-            <label for="ulica">Ulica:</label>
-            <input type="text" id="ulica" class="form-control" th:field="*{adres.ulica}" required maxlength="40">
-        </div>
+            <div class="form-group">
+                <label for="miasto">Miasto:</label>
+                <input type="text" id="miasto" class="form-control" th:field="*{adres.miasto}" required maxlength="30">
+            </div>
 
-        <div class="form-group">
-            <label for="nr_budynku">Nr budynku:</label>
-            <input type="text" id="nr_budynku" class="form-control" th:field="*{adres.nr_budynku}" required maxlength="6">
-        </div>
+            <div class="form-group">
+                <label for="ulica">Ulica:</label>
+                <input type="text" id="ulica" class="form-control" th:field="*{adres.ulica}" required maxlength="40">
+            </div>
 
-        <div class="form-group">
-            <label for="nr_lokalu">Nr lokalu:</label>
-            <input type="text" id="nr_lokalu" class="form-control" th:field="*{adres.nr_lokalu}" maxlength="5">
-        </div>
+            <div class="form-group">
+                <label for="nr_budynku">Nr budynku:</label>
+                <input type="text" id="nr_budynku" class="form-control" th:field="*{adres.nr_budynku}" required maxlength="6">
+            </div>
 
-        <div class="form-group">
-            <label for="kod_pocztowy">Kod pocztowy:</label>
-            <input type="text" id="kod_pocztowy" class="form-control" th:field="*{adres.kod_pocztowy}" required pattern="\d{2}-\d{3}" title="Kod pocztowy musi mieć format 00-000.">
-        </div>
+            <div class="form-group">
+                <label for="nr_lokalu">Nr lokalu:</label>
+                <input type="text" id="nr_lokalu" class="form-control" th:field="*{adres.nr_lokalu}" maxlength="5">
+            </div>
 
-        <div class="form-group text-center">
-            <button type="submit" class="btn btn-primary">Zapisz Zmiany</button>
-            <a href="/czlonkowie_klubu_admin" class="btn btn-secondary">Anuluj</a>
-        </div>
-    </form>
+            <div class="form-group">
+                <label for="kod_pocztowy">Kod pocztowy:</label>
+                <input type="text" id="kod_pocztowy" class="form-control" th:field="*{adres.kod_pocztowy}" required pattern="\d{2}-\d{3}" title="Kod pocztowy musi mieć format 00-000.">
+            </div>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary">Zapisz Zmiany</button>
+                <a href="/czlonkowie_klubu_admin" class="btn btn-secondary">Anuluj</a>
+            </div>
+        </form>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </body>
 </html>

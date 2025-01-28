@@ -4,40 +4,68 @@
     <meta charset="UTF-8">
     <title>Nowa Wyprawa</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .form-box {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-box h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .form-box .form-group label {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-<div class="container mt-5">
-    <h1 class="text-center">Dodaj Nową Wyprawę</h1>
-    <form action="@{/wyprawy_admin/save}" th:action="@{/save_wyprawa}" th:object="${wyprawa}" method="post" class="mt-4">
-        <div class="form-group">
-            <label for="data_od">Data od:</label>
-            <input type="date" id="data_od" class="form-control" th:field="*{data_od}" required>
-        </div>
 
-        <div class="form-group">
-            <label for="data_do">Data do:</label>
-            <input type="date" id="data_do" class="form-control" th:field="*{data_do}" required>
-        </div>
+<div class="container form-container">
+    <div class="form-box">
+        <h1 class="text-center">Dodaj Nową Wyprawę</h1>
+        <form action="@{/wyprawy_admin/save}" th:action="@{/save_wyprawa}" th:object="${wyprawa}" method="post">
+            <div class="form-group">
+                <label for="data_od">Data od:</label>
+                <input type="date" id="data_od" class="form-control" th:field="*{data_od}" required>
+            </div>
 
-        <div class="form-group">
-            <label for="opis">Opis:</label>
-            <textarea id="opis" class="form-control" th:field="*{opis}" required maxlength="400"></textarea>
-        </div>
+            <div class="form-group">
+                <label for="data_do">Data do:</label>
+                <input type="date" id="data_do" class="form-control" th:field="*{data_do}" required>
+            </div>
 
-        <div class="form-group">
-            <label for="cena">Cena:</label>
-            <input type="number" id="cena" class="form-control" step="0.01" min="0" max="9999999999.99" th:field="*{cena}" oninput="enforceLength(this)">
-        </div>
+            <div class="form-group">
+                <label for="opis">Opis:</label>
+                <textarea id="opis" class="form-control" th:field="*{opis}" required maxlength="400"></textarea>
+            </div>
 
-        <div class="form-group text-center">
-            <button type="submit" class="btn btn-primary">Zapisz</button>
-            <a href="/wyprawy_admin" class="btn btn-secondary">Anuluj</a>
-        </div>
-    </form>
+            <div class="form-group">
+                <label for="cena">Cena:</label>
+                <input type="number" id="cena" class="form-control" step="0.01" min="0" max="9999999999.99" th:field="*{cena}" oninput="enforceLength(this)">
+            </div>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary">Zapisz</button>
+                <a href="/wyprawy_admin" class="btn btn-secondary">Anuluj</a>
+            </div>
+        </form>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </body>
 </html>
