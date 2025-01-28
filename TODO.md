@@ -33,7 +33,7 @@ Zrobione i do zrobienia
 - [x] Poprawienie wyglądu regiter
 - [x] Przesunięcie guzika logout dla user
 - [x] Poprawienie wyglądu strony logowania i register
-- [ ] Dodanie jakchś głupot do admin main user nain i home
+- [x] Dodanie jakchś głupot do admin main user nain i home
 - [ ] Dodanie jakiegoś stylu CSS (może być jakiś z generatora)
 - [ ] Zrobienie popup po kliknięciu usuń z zatwierdzeniem (przy usuwaniu adresu ostrzeżenie że to może skutkować usunięciem wsztstkich danych powiąazabego użytkownika i prośba o wpisanie hasła)
 - [ ] Zrobienie ciekawszych stron błędów

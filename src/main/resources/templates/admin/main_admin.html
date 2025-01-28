@@ -2,82 +2,102 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Main Admin Page</title>
+    <title>Panel Administratora</title>
 
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
-        .navbar-brand {
-            color: white !important;
+        body {
+            background-image: url('https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGFkbWluaXN0cmF0aW9ufGVufDB8fHx8MTY4MDA4NDM0OA&ixlib=rb-4.0.3&q=80&w=1920');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .admin-box {
+            margin-top: 100px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            text-align: center;
+        }
+        .admin-box h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .admin-box p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .btn-panel {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s;
+            margin: 10px;
+        }
+        .btn-panel:hover {
+            background-color: #218838;
+            transform: translateY(-3px);
         }
     </style>
 </head>
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand">Admin Panel</a>
+        <a class="navbar-brand" href="/">Klub Wysokogórski - Admin</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Main</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/adresy_admin}">Adresy</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/czlonkowie_klubu_admin}">Członkowie Klubu</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/wyprawy_admin}">Wyprawy</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/index}">Home</a>
                 </li>
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Main
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-
                 <li class="nav-item">
                     <form method="post" th:action="@{/index}" class="form-inline my-2 my-lg-0">
-                        <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Logout
-                        </button>
+                        <button class="btn btn-primary" type="submit" value="Sign Out">Logout</button>
                     </form>
                 </li>
-
             </ul>
         </div>
     </div>
 </nav>
 
 <div class="container">
-    <div class="row">
-
-        <div class="col-md-10 mt-5">
-            <div class="form-group">
-                <label style="font-size:30px" th:inline="text">Welcome <a
-                        style="color:lightskyblue; text-transform:capitalize"><b>[[${#httpServletRequest.remoteUser}]]</b></a>
-                    to the main page!</label>
-                <div style="font-size:20px">If you want to logout, click the "Logout" button in the top-right corner of the page.</div>
-            </div>
-        </div>
-
+    <div class="admin-box">
+        <h1>Witaj, Administratorze!</h1>
+        <p>Zarządzaj klubem wysokogórskim, edytuj dane członków, wyprawy oraz adresy.</p>
+        <a th:href="@{/adresy_admin}" class="btn btn-panel">Zarządzaj Adresami</a>
+        <a th:href="@{/czlonkowie_klubu_admin}" class="btn btn-panel">Zarządzaj Członkami Klubu</a>
+        <a th:href="@{/wyprawy_admin}" class="btn btn-panel">Zarządzaj Wyprawami</a>
     </div>
 </div>
 
-<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/script.js}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>

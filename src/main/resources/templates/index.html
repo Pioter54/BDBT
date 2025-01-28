@@ -2,106 +2,113 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Welcome Page</title>
+    <title>Klub Wysokogórski</title>
 
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDl8fG1vdW50YWluc3xlbnwwfHx8fDE2ODAwODQyMzc&ixlib=rb-4.0.3&q=80&w=1920');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .content-section {
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+        }
+    </style>
 </head>
-
-<!-- <body th:style="'background: url(/assets/img/img.png) no-repeat center center fixed;'"> -->
-
-
-<!--<style th:inline="text">-->
-<!--    body{-->
-<!--        background: url([[@{/assets/img/img.png}]])-->
-<!--        no-repeat center center fixed;-->
-<!--    }-->
-<!--</style>-->
-
+<body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="/">BDBT Spring Boot Project - Part II</a>
+        <a class="navbar-brand" href="#">Klub Wysokogórski</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
+                    <a class="nav-link" th:href="@{/index}">Home</a>
                 </li>
-
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/main}">Main</a>
+                    <a class="nav-link" href="#about">O nas</a>
                 </li>
-
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/main}">Login</a></a>
+                    <a class="nav-link" href="#contact">Kontakt</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Zaloguj</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
 
+<div class="container mt-5">
+    <div class="hero">
+        <h1>Witamy w Klubie Wysokogórskim</h1>
+        <p>Dołącz do społeczności pasjonatów gór, poznawaj nowe szczyty i dziel się swoją pasją.</p>
+        <a href="/register" class="btn btn-primary btn-lg">Dołącz teraz</a>
+    </div>
 
-<!--Using images in page    -->
-<!-- <img th:src="@{/assets/img/img.png}" alt="Image" class="img-fluid"> -->
+    <div id="about" class="content-section mt-5">
+        <h2>O nas</h2>
+        <p>Klub Wysokogórski to miejsce, w którym miłośnicy gór spotykają się, by wspólnie organizować wyprawy, wymieniać się doświadczeniami i przeżywać niezapomniane przygody. Naszym celem jest promowanie aktywnego stylu życia i eksplorowanie najpiękniejszych górskich zakątków świata.</p>
+    </div>
 
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 mt-5">
-
-            <label style="font-size:30px">Welcome to the home page!</label>
-            <div style="font-size:20px">If you want to login, click <a th:href="@{/main}"><b>here</b></a> or in the
-                upper right corner.
-            </div>
-
-        </div>
+    <div id="contact" class="content-section mt-5">
+        <h2>Kontakt</h2>
+        <p>Masz pytania? Skontaktuj się z nami!</p>
+        <ul>
+            <li>Email: kontakt@klubwysokogorski.pl</li>
+            <li>Telefon: +48 123 456 789</li>
+            <li>Adres: ul. Górska 15, 30-001 Kraków</li>
+        </ul>
     </div>
 </div>
 
-<!--<div align="center">
-    <h1>Sales Records</h1>
+<footer>
+    <p>&copy; 2025 Klub Wysokogórski. Wszelkie prawa zastrzeżone.</p>
+</footer>
 
-    <table border="1" cellpadding="10">
-
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Item Name</th>
-            <th>Quantity</th>
-            <th>Amount</th>
-            <th>Action</th>
-
-        </tr>
-        </thead>
-
-        <tbody>
-        <tr th:each="sale : ${listSale}">
-            <td th:text="${sale.id}">ID</td>
-            <td th:text="${sale.item}">Item Name</td>
-            <td th:text="${sale.quantity}">Quantity</td>
-            <td th:text="${sale.amount}">Amount</td>
-        </tr>
-        </tbody>
-
-    </table>
-
-</div>-->
-
-
-<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>
-

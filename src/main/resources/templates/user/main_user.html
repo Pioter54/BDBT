@@ -2,72 +2,99 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Main User Page</title>
+    <title>Panel Użytkownika</title>
 
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDl8fG1vdW50YWluc3xlbnwwfHx8fDE2ODAwODQyMzc&ixlib=rb-4.0.3&q=80&w=1920');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .welcome-box {
+            margin-top: 100px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            text-align: center;
+        }
+        .welcome-box h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .welcome-box p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .btn-start {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .btn-start:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+    </style>
 </head>
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="/">BDBT Spring Boot Project - Part II</a>
+        <a class="navbar-brand" href="/">Klub Wysokogórski - Użytkownik</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/main_user}">Main
-                        <span class="sr-only">(current)</span>
-                    </a>
+                    <a class="nav-link" th:href="@{/main_user}">Main</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/wyprawy_user}">Wyprawy</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/moje_wycieczki}">Moje Wycieczki</a>
                 </li>
-
                 <li class="nav-item">
-                <a class="nav-link" th:href="@{/edit_my_data}">Profil</a>
+                    <a class="nav-link" th:href="@{/edit_my_data}">Profil</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/index}">Home</a>
                 </li>
-
                 <li class="nav-item">
                     <form method="post" th:action="@{/index}" class="form-inline my-2 my-lg-0">
-                        <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Logout
-                        </button>
+                        <button class="btn btn-primary" type="submit" value="Sign Out">Logout</button>
                     </form>
                 </li>
-
             </ul>
         </div>
     </div>
 </nav>
 
 <div class="container">
-    <div class="row">
-
-
-
+    <div class="welcome-box">
+        <h1>Witaj!</h1>
+        <p>Rozpocznij swoją przygodę ze wspinaczką. Odkryj nowe wyzwania i piękne widoki.</p>
+        <a th:href="@{/wyprawy_user}" class="btn btn-start">Zacznij wspinaczkę</a>
     </div>
 </div>
 
-
-<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/script.js}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>
