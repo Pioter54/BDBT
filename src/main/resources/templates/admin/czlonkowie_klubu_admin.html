@@ -12,7 +12,18 @@
         .navbar {
             background-color: #000 !important;
         }
+        th, td {
+            text-align: center; /* Centrowanie tekstu w poziomie */
+            vertical-align: middle; /* Centrowanie tekstu w pionie */
+        }
     </style>
+    <script>
+        function confirmDeletion(url) {
+            if (confirm("Czy na pewno chcesz usunąć tego członka klubu?")) {
+                window.location.href = url;
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -45,8 +56,6 @@
                     <a class="nav-link" th:href="@{/wyprawy_admin}">Wyprawy</a>
                 </li>
 
-
-
                 <li class="nav-item">
                     <form method="post" th:action="@{/index}" class="form-inline my-2 my-lg-0">
                         <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Logout
@@ -66,12 +75,6 @@
     <br/><br/>
     <!-- Table -->
     <table border="1" class="table table-bordered">
-        <style>
-            th, td {
-                text-align: center; /* Centrowanie tekstu w poziomie */
-                vertical-align: middle; /* Centrowanie tekstu w pionie */
-            }
-        </style>
 
         <!-- Table header -->
         <thead>
@@ -105,7 +108,7 @@
             <td>
                 <a th:href="@{'/edit_czlonek/' + ${czlonek.nr_czlonka_klubu}}">Edit</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/delete_czlonek/' + ${czlonek.nr_czlonka_klubu}}">Delete</a>
+                <a href="#" th:onclick="|confirmDeletion('/delete_czlonek/' + ${czlonek.nr_czlonka_klubu})|">Delete</a>
             </td>
         </tr>
         </tbody>

@@ -12,7 +12,18 @@
         .navbar {
             background-color: #000 !important;
         }
+        th, td {
+            text-align: center; /* Centrowanie tekstu w poziomie */
+            vertical-align: middle; /* Centrowanie tekstu w pionie */
+        }
     </style>
+    <script>
+        function confirmDeletion(url) {
+            if (confirm("Czy na pewno chcesz usunąć ten adres? Poskutkuje to usunięciem odpowiadającego mu usera!")) {
+                window.location.href = url;
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -45,10 +56,6 @@
                     <a class="nav-link" th:href="@{/wyprawy_admin}">Wyprawy</a>
                 </li>
 
-
-
-
-
                 <li class="nav-item">
                     <form method="post" th:action="@{/index}" class="form-inline my-2 my-lg-0">
                         <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Logout
@@ -66,46 +73,40 @@
     <!-- Page header -->
     <a href="/new_adres">Dodaj nowy adres</a>
     <br/><br/>
-<!-- Table -->
+    <a>UWAGA usunięcie adresu poskutkuje usunięciem odpowiadającego mu użytkownika</a>
+    <!-- Table -->
     <table border="1" class="table table-bordered">
-        <style>
-            th, td {
-                text-align: center; /* Centrowanie tekstu w poziomie */
-                vertical-align: middle; /* Centrowanie tekstu w pionie */
-            }
-        </style>
-
-    <!-- Table header -->
-    <thead>
-    <tr> <!-- Table row -->
-        <th>Nr_adresu</th> <!–- Table column -->
-        <th>Kraj</th>
-        <th>Miasto</th>
-        <th>Ulica</th>
-        <th>Nr_budynku</th>
-        <th>Nr_lokalu</th>
-        <th>Kod_pocztowy</th>
-        <th>Action</th>
-    </tr>
-    </thead>
-    <!-- Table body -->
-    <tbody>
-    <tr th:each = "adres : ${listAdres}">
-        <td th:text = "${adres.nr_adresu}">Nr_adresu</td>
-        <td th:text = "${adres.kraj}">Kraj</td>
-        <td th:text = "${adres.miasto}">Miasto</td>
-        <td th:text = "${adres.ulica}">Ulica</td>
-        <td th:text = "${adres.nr_budynku}">Nr_budynku</td>
-        <td th:text = "${adres.nr_lokalu}">Nr_lokalu</td>
-        <td th:text = "${adres.kod_pocztowy}">Kod_pocztowy</td>
-        <td>
-            <a th:href="@{'/edit_adres/' + ${adres.nr_adresu}}">Edit</a>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <a th:href="@{'/delete_adres/' + ${adres.nr_adresu}}">Delete</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+        <!-- Table header -->
+        <thead>
+        <tr> <!-- Table row -->
+            <th>Nr_adresu</th> <!–- Table column -->
+            <th>Kraj</th>
+            <th>Miasto</th>
+            <th>Ulica</th>
+            <th>Nr_budynku</th>
+            <th>Nr_lokalu</th>
+            <th>Kod_pocztowy</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <!-- Table body -->
+        <tbody>
+        <tr th:each = "adres : ${listAdres}">
+            <td th:text = "${adres.nr_adresu}">Nr_adresu</td>
+            <td th:text = "${adres.kraj}">Kraj</td>
+            <td th:text = "${adres.miasto}">Miasto</td>
+            <td th:text = "${adres.ulica}">Ulica</td>
+            <td th:text = "${adres.nr_budynku}">Nr_budynku</td>
+            <td th:text = "${adres.nr_lokalu}">Nr_lokalu</td>
+            <td th:text = "${adres.kod_pocztowy}">Kod_pocztowy</td>
+            <td>
+                <a th:href="@{'/edit_adres/' + ${adres.nr_adresu}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#" th:onclick="|confirmDeletion('/delete_adres/' + ${adres.nr_adresu})|">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>

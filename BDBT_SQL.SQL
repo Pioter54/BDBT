@@ -1,6 +1,6 @@
 ﻿/*
 Created: 01.12.2024
-Modified: 16.01.2025
+Modified: 21.01.2025
 Project: Klub wysokogórski
 Model: Oracle 19c logicall
 Company: Politechnika Warszawska
@@ -502,7 +502,7 @@ ALTER TABLE Schroniska ADD CONSTRAINT Schronisko_ma_adres FOREIGN KEY (Nr_adresu
 
 
 
-ALTER TABLE Dane_logowania ADD CONSTRAINT Login FOREIGN KEY (Nr_czlonka_klubu) REFERENCES Czlonkowie_klubu (Nr_czlonka_klubu)
+ALTER TABLE Dane_logowania ADD CONSTRAINT Login FOREIGN KEY (Nr_czlonka_klubu) REFERENCES Czlonkowie_klubu (Nr_czlonka_klubu) ON DELETE CASCADE
 /
 
 
