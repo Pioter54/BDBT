@@ -5,6 +5,9 @@
     <title>Edycja Twoich Danych</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
+        .navbar {
+            background-color: #000 !important;
+        }
         .form-container {
             display: flex;
             justify-content: center;
@@ -32,7 +35,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-        <a class="navbar-brand" href="/">BDBT Spring Boot Project - Part II</a>
+        <a class="navbar-brand" href="/">Klub Wysokogórski - Użytkownik</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -53,9 +56,6 @@
                     <a class="nav-link" th:href="@{/edit_my_data}">Profil
                         <span class="sr-only">(current)</span>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Home</a>
                 </li>
                 <li class="nav-item">
                     <form method="post" th:action="@{/index}" class="form-inline my-2 my-lg-0">

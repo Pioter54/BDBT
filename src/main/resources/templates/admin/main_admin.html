@@ -73,11 +73,8 @@
                     <a class="nav-link" th:href="@{/wyprawy_admin}">Wyprawy</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Home</a>
-                </li>
-                <li class="nav-item">
                     <form method="post" th:action="@{/index}" class="form-inline my-2 my-lg-0">
-                        <button class="btn btn-primary" type="submit" value="Sign Out">Logout</button>
+                        <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Logout</button>
                     </form>
                 </li>
             </ul>
